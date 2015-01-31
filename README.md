@@ -1,4 +1,5 @@
-Simple Static Web Framework
+
+<!-- Simple Static Web Framework
 ==============
 Simple PHP static web framework. All pages are routed through the index.php page setting the GET['page'] variable to different pages to allow multiple pages. 
 
@@ -15,7 +16,6 @@ Upcoming Features
 - Create scripts to automatically create associated config files with each page and automatically fill out the required variables.
 - Create a script that converts to completely static website. This should render pure HTML/JS pages with no PHP.
 
-<!-- 
 Third Party Components 
 --------------
 - [Less](http://lesscss.org/) Styling 
