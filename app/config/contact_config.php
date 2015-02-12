@@ -9,8 +9,8 @@
  */
 
 class config extends global_config{
-	public static $pageTitle 			= "Sandhogs | Home"; 
-	public static $pageDescription 		= "Description for the homepage"; 
+	public static $pageTitle 			= "Sandhogs | Contact"; 
+	public static $pageDescription 		= "Contact Information about the teams for the East Coast Sandhogs"; 
 
 	public static $stylesheets 			= array(); //Include stylesheets 
 	public static $javascript 			= array(); //Include javascript files

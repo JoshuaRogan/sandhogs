@@ -1,6 +1,8 @@
 //Import bootstrap variables and mixins 
 @import "bootstrap/variables.less";	
-@import "bootstrap/mixins.less";	
+@import "bootstrap/mixins.less";
+@import "fonts.less"; 
+@import "helper-classes.less"; 
 
 
 //Colors from image 
@@ -14,8 +16,195 @@
 @lighter-gray: rgb(149, 148, 156);
 
 
+.container{
+	padding-left: 2px;
+	padding-right: 2px;
+	/* Small devices (tablets, 768px and up) */
+	@media (min-width: @screen-sm-min) {}
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: @screen-md-min) {
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: @screen-lg-min) {}
+}
+
+// //Highligther color 
+// ::-moz-selection {
+//     // background: @theme-light-aqua;
+//     color: white;
+// }
+
+// ::selection {
+//     // background: @theme-light-aqua;
+//     color: white;
+// }
+
+
+
+
 
 //Add custom CSS
 body{
-	font-family: 'Source Sans Pro', sans-serif;
+	
+
+	nav{
+		//Logo Placement in the navbar 
+		.navbar-brand > img{
+			margin-top: -10px;
+			padding-left: 5px;
+		}	
+	}
+
+	//Real Footer
+	footer#footer{
+		#gradient > .vertical(@light-orange, darken(@light-orange, 5%));
+
+		padding-top: 40px;
+		margin-top: 60px;
+		color: white;
+
+		.container-fluid{
+			margin-left: 2%;
+			margin-right: 2%;
+		}
+
+		a{
+			color: white;
+			font-weight: bold
+		}
+
+		a:hover{
+			color: white;
+		}
+
+		img.logo{
+			max-width: 250px;
+		}
+
+	}
+
+}
+
+.page-home{
+
+	#doforyou{
+		margin-bottom: 55px;
+
+		h3{
+			font-weight: bold; 
+			font-size: 50px;
+			margin-bottom: 55px;
+		}
+
+		h4{
+			text-align: center; 
+			font-size: 34px;
+		}
+
+		p{
+			text-align: center; 
+			color: @lighter-gray;
+			font-weight: 300;
+		}
+		.img-container{
+			max-width: 150px;
+			max-height: 150px;
+
+			img{
+				
+			}
+		}
+		
+	}
+}
+
+//Page Specfic styling 
+
+.page-staff{
+	#staff{
+		
+		section{
+			padding: 0px 5px 5px 20px;
+			margin-bottom: 10px;
+
+			box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+			border-radius: 2px;
+
+			img{
+				// max-width: 200px;
+
+			}
+
+			address{
+				font-weight: bold;
+				font-size: 130%;
+				color: @brand-primary; 
+			}
+
+			i.fa{
+				color: @brand-primary; 
+			}
+
+			i.fa-mobile{
+				font-size: 28px;
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+
+.page-about{
+	div.embed-responsive{
+		min-height: 1000px;
+	}
+}
+
+.page-teams{
+
+	h3.coming-soon{
+		color: gray; 
+	}
+
+	.btn{
+		margin-top: 25px; 
+	}
+}
+
+.page-store{
+
+	#items .item{
+		#materialDesign > .shadow();
+
+	}
+	
+}
+
+.page-contact{
+	#form-contact{
+		#materialDesign > .shadow();
+		padding: 5px 15px 15px 15px;
+	}
+
+	.contact-box address{
+		#materialDesign > .shadow();
+		padding: 15px; 
+	}
+
+	#contact-list h3{
+		/* Medium devices (desktops, 992px and up) */
+		@media (min-width: @screen-md-min) {margin-top: 0px;}
+	}
+}
+
+.page-schedule{
+	#all-events{
+		section{
+			#materialDesign > .shadow();
+			padding: 15px; 
+			margin-bottom: 20px; 
+		}
+	}
 }
