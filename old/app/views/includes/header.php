@@ -15,12 +15,23 @@
 
           <ul class="nav navbar-nav">
             <li <?php if(substr($page, 0, strlen($page)-4) == "home") echo "class='active'"; ?> ><a href="/home">Home</a></li>
-            <li <?php if(substr($page, 0, strlen($page)-4) == "about") echo "class='active'"; ?> ><a href="/about">About</a></li>
-            <li <?php if(substr($page, 0, strlen($page)-4) == "teams") echo "class='active'"; ?> ><a href="/teams">Teams</a></li>
             <li <?php if(substr($page, 0, strlen($page)-4) == "schedule") echo "class='active'"; ?> ><a href="/schedule">Schedule</a></li>
-            <li <?php if(substr($page, 0, strlen($page)-4) == "staff") echo "class='active'"; ?> ><a href="/staff">Staff</a></li>
-            <li <?php if(substr($page, 0, strlen($page)-4) == "store") echo "class='active'"; ?> ><a href="/store">Store</a></li>
-            <li <?php if(substr($page, 0, strlen($page)-4) == "contact") echo "class='active'"; ?> ><a href="/contact">Contact</a></li>
+
+            <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About<span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li <?php if(substr($page, 0, strlen($page)-4) == "about") echo "class='active'"; ?> ><a href="/about">About Us</a></li>
+					<li <?php if(substr($page, 0, strlen($page)-4) == "teams") echo "class='active'"; ?> ><a href="/teams">Teams</a></li>
+					<li <?php if(substr($page, 0, strlen($page)-4) == "staff") echo "class='active'"; ?> ><a href="/staff">Staff</a></li>
+				</ul>
+        </li>          
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+          		<li <?php if(substr($page, 0, strlen($page)-4) == "store") echo "class='active'"; ?> ><a href="/store">Store</a></li>
+           	 <li <?php if(substr($page, 0, strlen($page)-4) == "contact") echo "class='active'"; ?> ><a href="/contact">Contact Us</a></li>
+
+
           </ul>
 
 

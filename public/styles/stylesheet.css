@@ -27,6 +27,9 @@
   border-radius: 2px;
   border: 0;
 }
+#main {
+  margin-top: 65px;
+}
 .container {
   padding-left: 2px;
   padding-right: 2px;
@@ -40,11 +43,16 @@
     padding-right: 2px;
   }
 }
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
 body nav .navbar-brand > img {
   margin-top: -10px;
   padding-left: 5px;
 }
 body footer#footer {
+  padding: 2px;
   background-image: -webkit-linear-gradient(top, #e26e45 0%, #df5d2f 100%);
   background-image: -o-linear-gradient(top, #e26e45 0%, #df5d2f 100%);
   background-image: linear-gradient(to bottom, #e26e45 0%, #df5d2f 100%);
@@ -68,13 +76,74 @@ body footer#footer a:hover {
 body footer#footer img.logo {
   max-width: 250px;
 }
+.page-home #home-banner {
+  background: url(/img/home-banner.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 300px;
+}
+.page-home #home-banner .container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */
+}
+.page-home #home-banner .container p {
+  font-size: 110%;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .page-home #home-banner .container {
+    padding-bottom: 75px;
+  }
+}
+@media (min-width: 992px) {
+  .page-home #home-banner .container {
+    padding-bottom: 100px;
+  }
+}
+@media (min-width: 1200px) {
+  .page-home #home-banner .container {
+    padding-bottom: 150px;
+  }
+}
+.page-home #upcomingEvents p {
+  margin: 0;
+}
+.page-home #upcomingEvents #allEvents {
+  margin-top: 15px;
+}
 .page-home #doforyou {
   margin-bottom: 55px;
 }
 .page-home #doforyou h3 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
   margin-bottom: 55px;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */
+}
+@media (min-width: 768px) {
+  .page-home #doforyou h3 {
+    font-size: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .page-home #doforyou h3 {
+    font-size: 45px;
+  }
+}
+@media (min-width: 1200px) {
+  .page-home #doforyou h3 {
+    font-size: 50px;
+  }
 }
 .page-home #doforyou h4 {
   text-align: center;
@@ -82,7 +151,7 @@ body footer#footer img.logo {
 }
 .page-home #doforyou p {
   text-align: center;
-  color: #95949c;
+  color: #615c64;
   font-weight: 300;
 }
 .page-home #doforyou .img-container {
@@ -147,4 +216,12 @@ body footer#footer img.logo {
   border: 0;
   padding: 15px;
   margin-bottom: 20px;
+}
+/*****Font aweomse mods****/
+.fa-calstack .calendar-text {
+  margin-top: .3em;
+}
+/*****Sliprry ovveride*******/
+.sy-pager li.sy-active a {
+  background-color: #e26e45;
 }
