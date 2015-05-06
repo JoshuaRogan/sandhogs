@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class CoachController extends Controller {
 
-	//
+	
+	/**
+	 * Show all of the coaches 
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		return view('profile.coachAll');
+	}
+
 
 }

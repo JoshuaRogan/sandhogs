@@ -11,4 +11,13 @@ class Coach extends Model {
 	 */
 	protected $table = 'coaches';
 
+	/**
+	 *	Profile for this coach
+	 *
+	 */
+	public function profile()
+    {
+        return $this->hasOne('App\Profile');
+    }
+
 }

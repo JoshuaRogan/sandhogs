@@ -39,7 +39,7 @@
 			<div class="col-md-3"> 
 				<!-- <h3> Report a Problem </h3>
 				<p> Found a problem? <a href="/report-problem">Report it here!</a> </p> -->
-				<img class="img-responsive center-block logo" alt="footer-logo" src="img/footer-logo.png"> 
+				<img class="img-responsive center-block logo" alt="footer-logo" src="/img/footer-logo.png"> 
 			</div>
 
 		</div>

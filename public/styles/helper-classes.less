@@ -6,7 +6,77 @@
 	font-family: "BLOKKRegular", inherit; 
 }
 
+//Home Banner
+#home-banner{
+		
+		background: url(/img/home-banner.jpg) no-repeat center center;
+		// background: 50% 50% no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		min-height: 300px;
 
+		.container{
+			padding-top: 5px;
+			padding-bottom: 50px;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: #fff;
+			p{
+				font-size: 110%;
+				line-height: 1.5; 
+			}
+
+			/* Small devices (tablets, 768px and up) */
+			@media (min-width: @screen-sm-min) { 
+				padding-bottom: 75px;
+				padding-top: 25px;
+			}
+
+			/* Medium devices (desktops, 992px and up) */
+			@media (min-width: @screen-md-min) { 
+				padding-bottom: 100px;
+				padding-top: 50px;
+			}
+
+			/* Large devices (large desktops, 1200px and up) */
+			@media (min-width: @screen-lg-min) { 
+				padding-bottom: 150px;
+			}
+
+		
+			
+		}
+	}
+
+//Contact box 
+.contact-box address{
+	#materialDesign > .shadow();
+	padding: 15px; 
+	div{text-overflow: ellipsis;}
+
+	h3{
+		font-size: 18px; 
+		margin-top: 0; 
+		margin-bottom: 0; 
+
+		/* Small devices (tablets, 768px and up) */
+		@media (min-width: @screen-sm-min) { 
+			font-size: 20px;
+		}
+
+		/* Medium devices (desktops, 992px and up) */
+		@media (min-width: @screen-md-min) { 
+			font-size: 20px;
+		}
+
+		/* Large devices (large desktops, 1200px and up) */
+		@media (min-width: @screen-lg-min) { 
+			font-size: 20px;
+		}
+	}
+}
 
 /**
  *	Material Design Mixins 
@@ -14,8 +84,10 @@
  */
  #materialDesign {
  	.shadow{
- 		box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
-		border-radius: 2px;
+ 		box-shadow: 0 1px 10px rgba(0,0,0,.16),0 1px 5px rgba(0,0,0,.10);
+		border-radius: .5px;
 		border: 0;
  	}
+
+
  }

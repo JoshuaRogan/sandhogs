@@ -26,6 +26,23 @@ class PlayerController extends Controller {
 		return $this->roster(2015, "Main"); //Return the current year roster
 	}
 
+	/**
+	 * Show the current year roster
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		$player = new \App\Player; 
+		$player->first  = "Bob"; 
+		$player->last  = "Sherman";
+		$player->position = "1B"; 
+		$player->bio = "Here is the bio for this player"; 
+		$player->email = "jjjr1122@gmail.com"; 
+		$player->imgURL = "url/for/thisimage.jpg";  
+		dd($player); 
+	}
+
 
 	/**
 	 * Show the current year roster
