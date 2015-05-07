@@ -52,16 +52,13 @@ Route::get('dashboard/teams/create', 'DashboardController@createTeam');
 
 
 // Route::get('dashboard/team/create', 'TeamController@create');
-Route::get('dashboard/player/create', 'PlayerController@create');
+// Route::get('dashboard/player/create', 'PlayerController@create');
+// Route::get('dashboard/teams/', 'TeamController@create');
 
 
-
-
-
-
-
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+//Rout unauthenicated users to the login page 
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 

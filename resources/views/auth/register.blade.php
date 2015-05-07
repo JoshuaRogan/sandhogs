@@ -1,7 +1,29 @@
-@extends('app')
+@extends('skeleton.base')
+@extends('skeleton.default_header')
+@extends('skeleton.default_footer')
+
+@section('title', 'Home')
+@section('description', 'Description of the home page')
+@section('pageclass', 'page-register')
+
+@section('styles')
+	@parent
+@stop
+
+@section('lazyscripts')
+	@parent
+@stop
+
+
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
+
+	<div class="alert alert-warning text-center" role="alert">
+		<p><strong> Registrations for all non-coaches or admins will be ignored</strong></p>
+		<p>  <em>Only coaches and system admins should have logins.</em> </p>
+	</div>
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
