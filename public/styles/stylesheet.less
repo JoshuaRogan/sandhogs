@@ -2,9 +2,10 @@
 @import "bootstrap/variables.less";	
 @import "bootstrap/mixins.less";
 @import "fonts.less"; 
-@import "helper-classes.less"; 
 @import "colors.less"; 
 @import "typography.less"; 
+
+@import "helper-classes.less"; 
 
 
 //Colors from image 
@@ -18,8 +19,28 @@
 @lighter-gray: rgb(149, 148, 156);
 
 body{
-	.btn, a, .fa{
-		transition:all 0.3s ease;
+	@custom-trans-type: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	@custom-trans-speed: 0.3s;
+
+	.btn{
+		transition:all 0.3s @custom-trans-type !important;
+	}
+
+	a{
+	 	transition:font @custom-trans-speed @custom-trans-type !important;
+	 	transition:color @custom-trans-speed @custom-trans-type !important;
+	 	transition:width @custom-trans-speed @custom-trans-type !important;
+	 	transition:height @custom-trans-speed @custom-trans-type !important;
+	 	transition:margin @custom-trans-speed @custom-trans-type !important;
+	 	transition:padding @custom-trans-speed @custom-trans-type !important;
+	}
+
+	.fa{
+		transition: font-size @custom-trans-speed @custom-trans-type !important;
+	}
+
+	.dropdown-menu{
+		transition: font-size @custom-trans-speed @custom-trans-type !important;
 	}
 
 	a:visited {
@@ -238,26 +259,122 @@ body{
 }
 
 .page-dashboard{
-	.jumbotron .fa{
-		padding-top: 20px; 
-	}
+	.jumbotron {
+		
+		
+		.fa{
+			padding-top: 20px; 
+			.fa > .dropshadow();
 
-	#menu{ //Main dashboard view
-		> div{
-			min-height: 180px;
-			#materialDesign > .shadow();
 
-			@media (max-width: @screen-xs-max) { 
-				min-height: 0;
-				padding-bottom: 10px; 
+			/* Small devices (tablets, 768px and up) */
+			@media (min-width: @screen-sm-min) { 
+				font-size: 5em;
 			}
-		}
 
-		> div:hover{
-			.fa{font-size: 8em; }
+			/* Medium devices (desktops, 992px and up) */
+			@media (min-width: @screen-md-min) { 
+				font-size: 6em;
+			}
+
+			/* Large devices (large desktops, 1200px and up) */
+			@media (min-width: @screen-lg-min) { 
+				font-size: 7em;
+			}
+
 		}
 		
 	}
+
+	#menu{ //Main dashboard view
+
+		.ribbon{
+			#ribbon();
+		}
+
+
+		text-align: center; 
+		> div {
+			margin-bottom: 10px; 
+		}
+
+		& > div > div:not(.clearfix){
+			padding: 15px; 
+
+
+
+			#materialDesign > .shadow();
+			min-height: 300px;
+
+			.fa.grow{
+				font-size: 5em;
+				padding: 25px;
+				min-height: 150px;
+			}
+
+			img.grow{
+				height: 5em; 
+				padding: 25px;
+				min-height: 150px;
+			}
+	
+			@media (max-width: @screen-xs-max) { 
+				.fa.grow, img.grow{
+					font-size: 3em; 
+					min-height: 0;
+				}
+
+				img.grow{
+					height: 3em; 
+					padding: 25px;
+					min-height: 150px;
+				}
+
+				min-height: 0;
+				padding-top: 5px; 
+				padding-bottom: 5px; 
+				margin-top: 0; 
+				margin-bottom: 2px; 
+			}
+		}
+
+		& > div > div:not(.clearfix):hover{
+			@media (min-width: @screen-sm-min) { 
+				.fa.grow{font-size: 7em; }
+				img.grow{height: 7em; }
+			}
+			a{
+				color: @link-color !important;
+			}
+		}
+
+
+		//Small Menu override
+		&.small-menu{
+			& > div > div:not(.clearfix){
+				min-height: 300px;
+				@media (max-width: @screen-xs-max) {
+					min-height: 0;
+				}
+			}
+		}
+		
+	}
+
+
+	.roster{
+		.fa-trash{
+			color:  @alizarin;
+		}
+
+		.fa-pencil{
+			color: @brand-primary;
+		}
+
+		
+	}
+
+
 }
 
 

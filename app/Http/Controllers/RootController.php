@@ -51,8 +51,24 @@ class RootController extends Controller {
 	 */
 	public function contact()
 	{
-		return view('contact'); 
+		return view('coming-soon'); 
+		// return view('contact'); 
 	}
+
+	/**
+	 * 	
+	 *	Show contact us page 	 
+	 *		
+	 *
+	 * @return Response
+	 */
+	public function about()
+	{
+		return view('about'); 
+	}
+
+
+
 
 
 }

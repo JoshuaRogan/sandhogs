@@ -22,7 +22,7 @@ class ScheduleController extends Controller {
 	 */
 	public function index()
 	{
-		return "All of the Schedules"; 
+		return view('coming-soon');
 	}	
 
 	/**

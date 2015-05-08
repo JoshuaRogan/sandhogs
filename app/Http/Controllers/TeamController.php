@@ -3,8 +3,7 @@
 use App\Http\Requests;
 use App\Team;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use \Storage;
 
 class TeamController extends Controller {
 	/*
@@ -63,8 +62,8 @@ class TeamController extends Controller {
 		// return dd($request, $year, $age_group); 
 
 
-		//Get the roster for this 
-		return view("team.roster");
+
+		return view("team.roster", ["age_group"=> $age_group, "roster"=> json_decode(Storage::get('json/roster.json'))]);
 	}
 
 }

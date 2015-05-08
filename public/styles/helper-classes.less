@@ -88,6 +88,60 @@
 		border-radius: .5px;
 		border: 0;
  	}
-
-
  }
+
+
+ //Primary color icon drop shadow
+ .fa{
+ 	.dropshadow(@intesity: 35%){
+
+ 		text-shadow: 4px 3px 0px darken(@brand-primary, @intesity), 9px 8px 0px rgba(0, 0, 0, 0.15);
+
+ 
+ 	}
+ }
+
+#ribbon{
+
+
+	display: block;
+	position: relative;
+	background-color: red; 
+	top: 50px;
+	left: -120px;
+	width: 50%;
+	height: 1em;
+
+
+	line-height: 1em; 
+	text-align: center;
+	opacity: 0.7;
+
+	&:before, &:after{
+		// content: "";
+		// position: absolute;
+		// display: block;
+		// bottom: -1em;
+		// border: 1.5em solid #986794;
+		// z-index: -1;
+	}
+
+
+	//Positioning
+	.left-low{
+
+	}
+
+	.left-high{
+
+	}
+
+	.right-low{
+
+	}
+
+	.right-high{
+
+	}
+}
+

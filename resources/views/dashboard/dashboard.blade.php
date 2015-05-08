@@ -29,7 +29,7 @@
   				<div class="center-block"><i class="fa fa-cogs fa-5x font-primary"></i></div>
   			</div>
 	  		<div class="col-sm-10"> 
-	    		<h2> East Coast Sandhogs Dashboard </h2>
+	    		<h2> East Coast Sandhogs Dashboard</h2>
 				<p> Use this page to update any data on the website. Including adding/updating players, coaches, and teams. </p>
 			</div>
 		</div> 
@@ -38,44 +38,16 @@
 
 
 <div class="container"> 
-	<div id="menu" class="row text-center"> 
-		<div class="col-sm-4"> 
-			<a href="/dashboard/teams">
-				<h3>  Manage Teams</h3>
-				<div class="center-block"><i class="fa fa-users fa-5x"></i></div>
-			 </a>
-		</div>
+	<div id="menu" class="row"> 
 
-		<div class="col-sm-4"> 
-			<a href="/dashboard/players">
-				<h3>  Manage Players </h3>
-				<div class="center-block"><i class="fa fa-user fa-5x"></i></div>
-			 </a>
-		</div>
-
-		<div class="col-sm-4"> 
-			<a href="/dashboard/coaches">
-				<h3>  Manage Coaches </h3>
-				<div class="center-block"><i class="fa fa-user-secret fa-5x"></i></div>
-			 </a>
-		</div>
+		@include("dashboard.menu-item", ['url' => '/dashboard/teams', 'title'=> 'Manage Teams', 'description'=> 'Add, update, or remove teams. Add, update, or remove players from their respective teams too.', 'icon'=> 'fa-users'])
+		@include("dashboard.menu-item", ['url' => '/dashboard/coaches', 'title'=> 'Manage Coaches', 'description'=> 'Add, update, or remove coaches', 'icon'=> 'fa-briefcase'])
+		@include("dashboard.menu-item", ['url' => '/dashboard/events', 'title'=> 'Manage Events', 'description'=> 'Add, update, or remove events. Events can be team specific or include multiple teams.', 'icon'=> 'fa-calendar'])
 
 		<div class="clearfix hidden-xs"></div>
-
-		<div class="col-sm-4"> 
-			<a href="/dashboard/events">
-				<h3>  Manage Events </h3>
-				<div class="center-block"><i class="fa fa-calendar fa-5x"></i></div>
-			 </a>
-		</div>
-
-		<!-- Add more content if sysadmin (not coach) --> 
-		<div class="col-sm-4"> 
-			<a href="/dashboard/users">
-				<h3>  Manage Users </h3>
-				<div class="center-block"><i class="fa fa-user fa-5x"></i></div>
-			 </a>
-		</div>
+		@include("dashboard.menu-item", ['url' => '/dashboard/global', 'title'=> 'Global Settings', 'description'=> 'Manage global settings such as which year is the active team and style elements such as the <strong>banner slider</strong>.', 'icon'=> 'fa-globe'])
+		@include("dashboard.menu-item", ['url' => '/dashboard/social', 'title'=> 'Social Media', 'description'=> 'Manage facebook, twitter, and more!', 'icon'=> 'fa-share-alt'])
+		@include("dashboard.menu-item", ['url' => '/dashboard/users', 'title'=> 'Manage Users', 'description'=> 'Manage the website users.', 'icon'=> 'fa-user', 'admin' => true])
 
 	</div>
 </div>

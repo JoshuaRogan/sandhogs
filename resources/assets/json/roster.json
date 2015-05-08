@@ -1,0 +1,457 @@
+[
+  {
+    "#":1,
+    "Player":"TJ Dimattia",
+    "Team":"9U"
+  },
+  {
+    "#":2,
+    "Player":"Grace McCormack",
+    "Team":"9U"
+  },
+  {
+    "#":3,
+    "Player":"Jake Lenehan",
+    "Team":"9U"
+  },
+  {
+    "#":4,
+    "Player":"Noah LaFrance",
+    "Team":"9U"
+  },
+  {
+    "#":5,
+    "Player":"Louis Marriotti",
+    "Team":"9U"
+  },
+  {
+    "#":6,
+    "Player":"Jason Selemba",
+    "Team":"9U"
+  },
+  {
+    "#":7,
+    "Player":"Joe Granko",
+    "Team":"9U"
+  },
+  {
+    "#":8,
+    "Player":"Daniel Santaniello",
+    "Team":"9U"
+  },
+  {
+    "#":9,
+    "Player":"Connor Abel ",
+    "Team":"9U"
+  },
+  {
+    "#":10,
+    "Player":"Joey Marriotti",
+    "Team":"9U"
+  },
+  {
+    "#":1,
+    "Player":"Eddie Kaufman",
+    "Team":"10U"
+  },
+  {
+    "#":2,
+    "Player":"Tom Sheridan",
+    "Team":"10U"
+  },
+  {
+    "#":3,
+    "Player":"Blake Decker*",
+    "Team":"10U"
+  },
+  {
+    "#":4,
+    "Player":"Luke Pica",
+    "Team":"10U"
+  },
+  {
+    "#":5,
+    "Player":"Roman Valvano",
+    "Team":"10U"
+  },
+  {
+    "#":6,
+    "Player":"George Stallman",
+    "Team":"10U"
+  },
+  {
+    "#":7,
+    "Player":"Jake Lenori",
+    "Team":"10U"
+  },
+  {
+    "#":8,
+    "Player":"Josh Halcisak",
+    "Team":"10U"
+  },
+  {
+    "#":9,
+    "Player":"Danny Nemitz",
+    "Team":"10U"
+  },
+  {
+    "#":10,
+    "Player":"Nick Colarossi",
+    "Team":"10U"
+  },
+  {
+    "#":11,
+    "Player":"Logan Fuga",
+    "Team":"10U"
+  },
+  {
+    "#":1,
+    "Player":"Adam Grundt ",
+    "Team":"12U"
+  },
+  {
+    "#":2,
+    "Player":"Duke Stafursky",
+    "Team":"12U"
+  },
+  {
+    "#":3,
+    "Player":"Scott Gilbert",
+    "Team":"12U"
+  },
+  {
+    "#":4,
+    "Player":"Derek Cunius",
+    "Team":"12U"
+  },
+  {
+    "#":5,
+    "Player":"Jackson Amend",
+    "Team":"12U"
+  },
+  {
+    "#":6,
+    "Player":"Chance Grube",
+    "Team":"12U"
+  },
+  {
+    "#":7,
+    "Player":"Zachary Benson",
+    "Team":"12U"
+  },
+  {
+    "#":8,
+    "Player":"Aidan Kearney",
+    "Team":"12U"
+  },
+  {
+    "#":9,
+    "Player":"Zach Kovalchick",
+    "Team":"12U"
+  },
+  {
+    "#":10,
+    "Player":"Ryan Cesarini",
+    "Team":"12U"
+  },
+  {
+    "#":11,
+    "Player":"Max Hanyon",
+    "Team":"12U"
+  },
+  {
+    "#":12,
+    "Player":"Jake Jarosh",
+    "Team":"12U"
+  },
+  {
+    "#":13,
+    "Player":"TJ Noto",
+    "Team":"12U"
+  },
+  {
+    "#":1,
+    "Player":"Jack Supanek",
+    "Team":"13U"
+  },
+  {
+    "#":2,
+    "Player":"Jeremy Boyle",
+    "Team":"13U"
+  },
+  {
+    "#":3,
+    "Player":"Matthew Lanzendorfer",
+    "Team":"13U"
+  },
+  {
+    "#":4,
+    "Player":"David Baltrusaitis",
+    "Team":"13U"
+  },
+  {
+    "#":5,
+    "Player":"Gino Mariggi",
+    "Team":"13U"
+  },
+  {
+    "#":6,
+    "Player":"Tyler Conner",
+    "Team":"13U"
+  },
+  {
+    "#":7,
+    "Player":"Tyler Mozeleski",
+    "Team":"13U"
+  },
+  {
+    "#":8,
+    "Player":"Zachary Allen",
+    "Team":"13U"
+  },
+  {
+    "#":9,
+    "Player":"Ryan Petrucci",
+    "Team":"13U"
+  },
+  {
+    "#":10,
+    "Player":"Nick Davenport",
+    "Team":"13U"
+  },
+  {
+    "#":11,
+    "Player":"Charlie Kutz",
+    "Team":"13U"
+  },
+  {
+    "#":12,
+    "Player":"Carter Shupp",
+    "Team":"13U"
+  },
+  {
+    "#":13,
+    "Player":"Ryan O'Malley",
+    "Team":"13U"
+  },
+  {
+    "#":1,
+    "Player":"Christian Shoemaker",
+    "Team":"15/16U"
+  },
+  {
+    "#":2,
+    "Player":"TJ Lacey",
+    "Team":"15/16U"
+  },
+  {
+    "#":3,
+    "Player":"Kevin Krawczyk ",
+    "Team":"15/16U"
+  },
+  {
+    "#":4,
+    "Player":"Austin Sienkiewicz",
+    "Team":"15/16U"
+  },
+  {
+    "#":5,
+    "Player":"Jake Mastillo",
+    "Team":"15/16U"
+  },
+  {
+    "#":6,
+    "Player":"Matt Grozier",
+    "Team":"15/16U"
+  },
+  {
+    "#":7,
+    "Player":"Mike Winter ",
+    "Team":"15/16U"
+  },
+  {
+    "#":8,
+    "Player":"Matthew Clarke",
+    "Team":"15/16U"
+  },
+  {
+    "#":9,
+    "Player":"Zachary Groover ",
+    "Team":"15/16U"
+  },
+  {
+    "#":10,
+    "Player":"Zachary McDonald",
+    "Team":"15/16U"
+  },
+  {
+    "#":11,
+    "Player":"Anthony Freda",
+    "Team":"15/16U"
+  },
+  {
+    "#":12,
+    "Player":"Patrick Adamski",
+    "Team":"15/16U"
+  },
+  {
+    "#":13,
+    "Player":"Matt Hayes ",
+    "Team":"15/16U"
+  },
+  {
+    "#":1,
+    "Player":"Jack Fenwick",
+    "Team":"17UP"
+  },
+  {
+    "#":2,
+    "Player":"Corey Miller",
+    "Team":"17UP"
+  },
+  {
+    "#":3,
+    "Player":"Drew Patton",
+    "Team":"17UP"
+  },
+  {
+    "#":4,
+    "Player":"Morgan Theobald",
+    "Team":"17UP"
+  },
+  {
+    "#":5,
+    "Player":"Noah Granet",
+    "Team":"17UP"
+  },
+  {
+    "#":6,
+    "Player":"Rocco DePietro",
+    "Team":"17UP"
+  },
+  {
+    "#":7,
+    "Player":"JD Barrett",
+    "Team":"17UP"
+  },
+  {
+    "#":8,
+    "Player":"Jake Packer",
+    "Team":"17UP"
+  },
+  {
+    "#":9,
+    "Player":"Brendon Mozeleski ",
+    "Team":"17UP"
+  },
+  {
+    "#":10,
+    "Player":"Kyle Kowalski",
+    "Team":"17UP"
+  },
+  {
+    "#":11,
+    "Player":"Nick Sottile ",
+    "Team":"17UP"
+  },
+  {
+    "#":12,
+    "Player":"Nick Montoro ",
+    "Team":"17UP"
+  },
+  {
+    "#":13,
+    "Player":"Ben Stokes",
+    "Team":"17UP"
+  },
+  {
+    "#":14,
+    "Player":"Christo Huntingdon",
+    "Team":"17UP"
+  },
+  {
+    "#":15,
+    "Player":"Brady Mengel",
+    "Team":"17UP"
+  },
+  {
+    "#":1,
+    "Player":"Nate Fiala",
+    "Team":"17UE"
+  },
+  {
+    "#":2,
+    "Player":"Tyler Stafursky ",
+    "Team":"17UE"
+  },
+  {
+    "#":3,
+    "Player":"Zach Spangenberg ",
+    "Team":"17UE"
+  },
+  {
+    "#":4,
+    "Player":"RJ Boyle",
+    "Team":"17UE"
+  },
+  {
+    "#":5,
+    "Player":"Sam Arnold",
+    "Team":"17UE"
+  },
+  {
+    "#":6,
+    "Player":"Ryan Hogan ",
+    "Team":"17UE"
+  },
+  {
+    "#":7,
+    "Player":"Peter Nolan",
+    "Team":"17UE"
+  },
+  {
+    "#":8,
+    "Player":"Cody Brown",
+    "Team":"17UE"
+  },
+  {
+    "#":9,
+    "Player":"Sean Haddock",
+    "Team":"17UE"
+  },
+  {
+    "#":10,
+    "Player":"Jordi Arias",
+    "Team":"17UE"
+  },
+  {
+    "#":11,
+    "Player":"Kyler McAllister ",
+    "Team":"17UE"
+  },
+  {
+    "#":12,
+    "Player":"Tyler Yankosky",
+    "Team":"17UE"
+  },
+  {
+    "#":13,
+    "Player":"Zack Campbell",
+    "Team":"17UE"
+  },
+  {
+    "#":14,
+    "Player":"Wilson Guarnera",
+    "Team":"17UE"
+  },
+  {
+    "#":15,
+    "Player":"Jack Dunphy",
+    "Team":"17UE"
+  },
+  {
+    "#":16,
+    "Player":"Joey Gutowski ",
+    "Team":"17UE"
+  }
+]

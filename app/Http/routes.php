@@ -15,6 +15,7 @@ Route::get('/', 'RootController@index');
 Route::get('home', 'RootController@index');
 Route::get('splash', 'RootController@splash');
 Route::get('contact', 'RootController@contact');
+Route::get('about', 'RootController@about');
 
 //Teams (i.e. roster/coach information)
 
@@ -42,10 +43,23 @@ Route::get('schedule/{age_group}', 'ScheduleController@teamSchedule'); //Change 
 Route::get('schedule/{age_group}/{year}', 'ScheduleController@teamSchedule');
 
 
-//Dashboard (Modifying data area)
-Route::get('dashboard/', 'DashboardController@index');
-Route::get('dashboard/teams/', 'DashboardController@teams');
-Route::get('dashboard/teams/create', 'DashboardController@createTeam');
+/***************************DASHBOARD***************************/
+
+	//Viewing
+	Route::get('dashboard/', 'DashboardController@index');
+	
+		//Teams
+		Route::get('dashboard/teams/', 'DashboardController@teams');
+		Route::get('dashboard/team/{age_group}/{year}', 'DashboardController@team');
+
+		//Coaches
+		Route::get('dashboard/coaches/', 'DashboardController@coaches');
+
+		//Players
+
+
+	//Creating, Updating, Deleting
+	
 
 
 

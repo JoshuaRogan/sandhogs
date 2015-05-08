@@ -20,14 +20,14 @@
 @section('content')
 <div class="container"> 
 	<div class="col-sm-8"> 
-		<h3> East Coast Sandhogs 10U Roster </h3>
+		<h3> East Coast Sandhogs {{$age_group}} Roster </h3>
 		<div class="table-responsive">
 		<table class='table table-striped'>
 		  <thead>
 		    <tr>
 		      <th>Player</th>
 		      <th>#</th>
-		      <th>Age</th>
+		      {{-- <th>Age</th> --}}
 		    </tr>
 		  </thead>
 {{-- 		  <tfoot>
@@ -37,65 +37,49 @@
 		    </tr>
 		  </tfoot> --}}
 		  <tbody>
-			<tr>
-				<td>TJ Dimattia</td>
-				<td> 1 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Grace McCormack</td>
-				<td> 2 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Jake Lenehan</td>
-				<td> 3 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Noah LaFrance</td>
-				<td> 4 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Louis Marriotti</td>
-				<td> 5 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Jason Selemba</td>
-				<td> 6 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Joe Granko</td>
-				<td> 7 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Daniel Santaniello</td>
-				<td> 8 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Connor Abel </td>
-				<td> 9 </td>
-				<td> 10 </td>
-			</tr>
-			<tr>
-				<td>Joey Marriotti</td>
-				<td> 10 </td>
-				<td> 10 </td>
-			</tr>
+
+			@foreach ($roster as $player)
+
+				@if(strtolower($age_group) === strtolower($player->{'Team'}))
+					<?php $flag = true ?>
+					<tr> 
+						<td>{{ $player->{'Player'} }}</td>
+						<td>{{ $player->{'#'} }}</td>
+						<td>{{ $player->{'Team'} }}</td>
+					</tr>
+				@endif
+
+
+
+			@endforeach
+
+			
+
+
+
+
+
+
 		  </tbody>
 		</table>
 		</div>
+
+
+
+		@if(!isset($flag))
+			<div class="alert alert-warning text-center row" role="alert">
+				<div class="col-xs-4"><i class="fa fa-exclamation fa-5x font-orange"></i></div>
+				<div class="col-xs-8"> <strong>There are no players for this team! </strong></div>
+			</div>
+		@endif
 	</div>
 
+
+
 	<div class="col-sm-4" id="events"> 
-		<h2> Coaches </h2>
+		<h2> All Coaches </h2>
 		<div class="contact-box">
-			<address> 
+			<address class="hidden"> 
 				<h3><a href="#">Paul McGloin</a></h3>
 				<div>
 					<div><a href="mailto:mcgloin@electricitybaseball.com"><i class="fa fa-envelope"></i> Email Me</a></div>
@@ -103,13 +87,66 @@
 				</div>
 			</address>
 
-			<address> 
+			<address class="hidden"> 
 				<h3><a href="#">Joe Curreri</a></h3>
 				<div>
 					<div><a href="mailto:nepridebaseball@gmail.com"><i class="fa fa-envelope"></i> Email Me</a></div>
 					<div><i class="fa fa-mobile"></i> (570) 575-1515</div>
 				</div>
 			</address>
+
+			<ul class="list-unstyled"> 
+				<li> <strong>17U Elite: </strong>
+					<ul class="list-inline"> 
+						<li> Ken Spangenberg </li>
+						<li> Tom Donohue </li> 
+						<li> Dean Pettinato</li>
+					</ul>
+				</li>
+				<li> <strong>17U Prospect: </strong>
+					<ul class="list-inline"> 
+						<li> Phil Stokes </li>
+						<li> Ricky Breymier </li> 
+					</ul>
+				</li>
+				<li> <strong>15/16U: </strong>
+					<ul class="list-inline"> 
+						<li> Anthony Duchnowski </li>
+						<li> Chris King </li> 
+					</ul>
+				</li>
+				<li> <strong>13U: </strong>
+					<ul class="list-inline"> 
+						<li> Paul Chmiel </li>
+						<li> John Connor</li> 
+					</ul>
+				</li>
+				<li> <strong>12U: </strong>
+					<ul class="list-inline"> 
+						<li> Ken Grundtg </li>
+						<li> Dave Stafursky </li> 
+					</ul>
+				</li>
+
+				<li> <strong>10U: </strong>
+					<ul class="list-inline"> 
+						<li> Jon Woytach </li>
+						<li> Eddie Decker </li> 
+					</ul>
+				</li>
+
+				<li> <strong>9U: </strong>
+					<ul class="list-inline"> 
+						<li> Tony DiMattia </li>
+						<li> Lou Mariotti </li> 
+						<li> Sean McCormack</li>
+					</ul>
+				</li>
+				
+		
+
+			</ul>
+
 
  		</div>
 

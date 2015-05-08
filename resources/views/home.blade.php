@@ -28,14 +28,18 @@
 
 	<div id="upcomingEvents" class="col-xs-12 col-md-5"> 
 		<h2> Upcoming Events </h2>
+		<div class="alert alert-warning text-center row" role="alert">
+			<div class="col-xs-4"><i class="fa fa-exclamation fa-5x font-orange"></i></div>
+			<div class="col-xs-8"> <strong>There are no active events for the Sandhogs!</strong></div>
+		</div>
 		<ul  class="list-unstyled events">
-			@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])
+			{{--@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])
 			@include('events.homeEvent', ['name' => 'Battle of the Best', 'type' => 'Showcase'])
-			@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])
+			@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])--}}
 		</ul>
 
 		<div class="col-xs-12"> 
-			<a class="btn btn-info btn-lg btn-block" href="#" role="button" id="allEvents">All Events</a>
+			<a class="btn btn-info btn-lg btn-block" href="/schedule" role="button" id="allEvents">All Events</a>
 		</div>
 	</div>
 

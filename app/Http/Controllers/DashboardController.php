@@ -31,13 +31,34 @@ class DashboardController extends Controller {
 	}
 
 	/**
-	 * Show all of the rosters for the current year  
+	 * Show all of the teams and create team form 
 	 *
 	 * @return Response
 	 */
 	public function teams()
 	{
 		return view("dashboard.teams"); 
+	}
+
+	/**
+	 *   
+	 *
+	 * @return Response
+	 */
+	public function team($age_group)
+	{
+		return view("dashboard.team"); 
+	}
+
+
+	/**
+	 *   
+	 *
+	 * @return Response
+	 */
+	public function coaches()
+	{
+		return view("dashboard.coaches"); 
 	}
 
 }
