@@ -68,6 +68,19 @@ class RootController extends Controller {
 	}
 
 
+	/**
+	 * 	
+	 *	Show contact us page 	 
+	 *		
+	 *
+	 * @return Response
+	 */
+	public function soon()
+	{
+		return view('coming-soon');
+	}
+
+
 
 
 

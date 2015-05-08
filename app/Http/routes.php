@@ -16,6 +16,7 @@ Route::get('home', 'RootController@index');
 Route::get('splash', 'RootController@splash');
 Route::get('contact', 'RootController@contact');
 Route::get('about', 'RootController@about');
+Route::get('store', 'RootController@soon');
 
 //Teams (i.e. roster/coach information)
 
