@@ -1,22 +1,115 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\CreateCoachRequest;
 use App\Http\Controllers\Controller;
+use App\Coach;
 
 use Illuminate\Http\Request;
 
 class CoachController extends Controller {
 
-	
+	private $coach; 
+
+
+	public function __construct(Coach $coach){
+		$this->beforeFilter('auth', ['except' => 'destroy']);
+
+		$this->coach = $coach;
+	}
+
 	/**
-	 * Show all of the coaches 
+	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return view('profile.coachAll');
+		//
+		// dd(Coach::all());
+		return "All Coaches"; 
 	}
 
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return view('dashboard.coaches', ['coaches'=>Coach::all()]);
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store(Coach $coach, CreateCoachRequest $request)
+	{
+		$coach->fill($request->all());
+		$coach->slug = strtolower(str_replace(" ", "", $coach->first) . "-" . str_replace(" ", "", $coach->last));
+		//Generate a unique slug
+		$i = 1;
+		while(Coach::withTrashed()->where('slug', '=', $coach->slug)->count() > 0){
+			$coach->slug = strtolower(str_replace(" ", "", $coach->first) . "-" . str_replace(" ", "", $coach->last)) . "-" . $i;
+			$i++;
+		}
+
+		$coach->save();
+
+		return redirect()->route('staff.create');
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show(Coach $coach)
+	{
+		// $coach = Coach::whereSlug($slug)->first(); 
+		// dd($coach);
+		// return 'show'; 
+		return $coach;
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit(Coach $coach)
+	{
+
+		return view('dashboard.coaches-edit', ['coach'=> $coach]);
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update(Coach $coach, CreateCoachRequest $request)
+	{
+		$coach->fill($request->all())->save();
+		return redirect()->route('staff.create');    
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy(Coach $coach)
+	{
+		$coach->delete();
+		
+		return redirect()->route('staff.create'); 
+	}
 
 }

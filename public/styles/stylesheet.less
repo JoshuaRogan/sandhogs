@@ -22,7 +22,7 @@ body{
 	@custom-trans-type: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 	@custom-trans-speed: 0.3s;
 
-	.btn{
+	.btn, img{
 		transition:all 0.3s @custom-trans-type !important;
 	}
 
@@ -114,8 +114,6 @@ body{
 			margin-top: -10px;
 			padding-left: 5px;
 		}
-
-
 
 		/* Medium devices (desktops, 992px and up) */
 		@media (max-width: @screen-xs-max) { //768
@@ -251,9 +249,28 @@ body{
 }
 
 .page-roster{
-	#events{
+	.profile{
+		.profile-image{
+			width: 20%;
 
-		
+			/* Small devices (tablets, 768px and up) */
+			@media (min-width: @screen-sm-min) { 
+				width: 25%;
+			}
+
+			/* Medium devices (desktops, 992px and up) */
+			@media (min-width: @screen-md-min) { 
+				width: 80%;
+			}
+		}
+
+		.gallery-image img{
+			margin-bottom: 5%;
+		}
+	}
+
+
+	#events{	
 		
 	}
 }

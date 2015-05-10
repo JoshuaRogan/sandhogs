@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/home"><img src="/img/fielder-og.png" height="40px" alt='logo'></a>
+        <a class="navbar-brand" href="/home"><img src="/img/fielder-og.png" height="40" alt='logo'></a>
     </div>
 
 

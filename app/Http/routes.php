@@ -11,6 +11,16 @@
 |
 */
 
+Route::bind('staff', function($slug)
+{
+	return App\Coach::whereSlug($slug)->first();
+});
+Route::resource('staff', 'CoachController'); 
+
+
+
+
+
 Route::get('/', 'RootController@index');
 Route::get('home', 'RootController@index');
 Route::get('splash', 'RootController@splash');
@@ -18,9 +28,10 @@ Route::get('contact', 'RootController@contact');
 Route::get('about', 'RootController@about');
 Route::get('store', 'RootController@soon');
 
-//Teams (i.e. roster/coach information)
 
 
+
+// //Teams (i.e. roster/coach information)
 Route::get('team/', 'TeamController@index'); //Show all of the teams 
 Route::get('teams/', 'TeamController@index'); //Show all of the teams  
 Route::get('team/{age_group}', 'TeamController@roster'); //Change this to a redirect to current year 
@@ -30,48 +41,52 @@ Route::get('teams/{age_group}/{year}', 'TeamController@roster');
 
 
 
-//Profiles 
-Route::get('player/{playerID}', 'PlayerController@profile');
-Route::get('coach/{coachID}', 'CoachController@profile');
-Route::get('coaches/', 'CoachController@index');
+// //Profiles 
+// Route::get('player/{playerID}', 'PlayerController@profile');
+// Route::get('coach/{coachID}', 'CoachController@profile');
+// // Route::get('coaches/', 'CoachController@index');
 
 
 
-//Schedules (i.e. list of games)
-Route::get('schedule/', 'ScheduleController@index'); 
-Route::get('schedules/', 'ScheduleController@index'); 
-Route::get('schedule/{age_group}', 'ScheduleController@teamSchedule'); //Change this to a redirect to current year 
-Route::get('schedule/{age_group}/{year}', 'ScheduleController@teamSchedule');
+// //Schedules (i.e. list of games)
+// Route::get('schedule/', 'ScheduleController@index'); 
+// Route::get('schedules/', 'ScheduleController@index'); 
+// Route::get('schedule/{age_group}', 'ScheduleController@teamSchedule'); //Change this to a redirect to current year 
+// Route::get('schedule/{age_group}/{year}', 'ScheduleController@teamSchedule');
 
 
-/***************************DASHBOARD***************************/
+// /***************************DASHBOARD***************************/
 
-	//Viewing
+// 	//Viewing
 	Route::get('dashboard/', 'DashboardController@index');
 	
-		//Teams
+// 		//Teams
 		Route::get('dashboard/teams/', 'DashboardController@teams');
 		Route::get('dashboard/team/{age_group}/{year}', 'DashboardController@team');
 
-		//Coaches
+// 		//Coaches
 		Route::get('dashboard/coaches/', 'DashboardController@coaches');
 
-		//Players
+		
+		Route::post('dashboard/coaches/create', 'CoachController@create');
 
 
-	//Creating, Updating, Deleting
+// 		//Players
+
+
+// 	//Creating, Updating, Deleting
 	
 
 
 
 
 
-// Route::get('dashboard/team/create', 'TeamController@create');
-// Route::get('dashboard/player/create', 'PlayerController@create');
-// Route::get('dashboard/teams/', 'TeamController@create');
+Route::get('dashboard/team/create', 'TeamController@create');
+Route::get('dashboard/player/create', 'PlayerController@create');
+Route::get('dashboard/teams/', 'TeamController@create');
 
 
-//Rout unauthenicated users to the login page 
+// Rout unauthenicated users to the login page 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

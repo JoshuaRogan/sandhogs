@@ -19,64 +19,35 @@
 
 @section('content')
 <div class="container"> 
-	<div class="col-sm-8"> 
+	<div class="col-md-8"> 
 		<h3> East Coast Sandhogs {{$age_group}} Roster </h3>
-		<div class="table-responsive">
-		<table class='table table-striped'>
-		  <thead>
-		    <tr>
-		      <th>Player</th>
-		      <th>#</th>
-		      {{-- <th>Age</th> --}}
-		    </tr>
-		  </thead>
-{{-- 		  <tfoot>
-		    <tr>
-		      <td>Footer content 1</td>
-		      <td>Footer content 2</td>
-		    </tr>
-		  </tfoot> --}}
-		  <tbody>
+		{{-- <p> Click any player to see more information </p> --}}
+	
 
+	  	<div class="panel-group" id="players" role="tablist" aria-multiselectable="true">
 			@foreach ($roster as $player)
 
 				@if(strtolower($age_group) === strtolower($player->{'Team'}))
 					<?php $flag = true ?>
-					<tr> 
-						<td>{{ $player->{'Player'} }}</td>
-						<td>{{ $player->{'#'} }}</td>
-						<td>{{ $player->{'Team'} }}</td>
-					</tr>
+					@include('profile.player', ['player' => $player]) 
 				@endif
 
-
-
 			@endforeach
-
-			
-
-
-
-
-
-
-		  </tbody>
-		</table>
 		</div>
 
 
 
 		@if(!isset($flag))
-			<div class="alert alert-warning text-center row" role="alert">
-				<div class="col-xs-4"><i class="fa fa-exclamation fa-5x font-orange"></i></div>
-				<div class="col-xs-8"> <strong>There are no players for this team! </strong></div>
+			<div class="alert alert-danger text-center row" role="alert">
+				<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-red"></i></div>
+				<div class="col-xs-8 simple-padding-3"> <strong>There are no players for this team! </strong></div>
 			</div>
 		@endif
 	</div>
 
 
 
-	<div class="col-sm-4" id="events"> 
+	<div class="col-md-4" id="events"> 
 		<h2> All Coaches </h2>
 		<div class="contact-box">
 			<address class="hidden"> 
@@ -153,8 +124,14 @@
 		<h2> Upcoming Events </h2>
 		
 		<div class="alert alert-warning text-center row" role="alert">
-			<div class="col-xs-4"><i class="fa fa-exclamation fa-5x font-orange"></i></div>
-			<div class="col-xs-8"> <strong>There are no active events for this team! </strong></div>
+			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
+			<div class="col-xs-8 simple-padding-3"> <strong>There are no active events for this team! </strong></div>
+		</div>
+
+		<h2> Photos &amp; Videos </h2>
+		<div class="alert alert-warning text-center row" role="alert">
+			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
+			<div class="col-xs-8 simple-padding-3"> <strong>There is no media associated with this team yet! </strong></div>
 		</div>
 
 

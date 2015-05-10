@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreatePlayersTable extends Migration {
 
@@ -22,6 +23,7 @@ class CreatePlayersTable extends Migration {
 			$table->string('bio');
 			$table->string('email');
 			$table->string('imgURL');
+			$table->softDeletes();
 		});
 	}
 

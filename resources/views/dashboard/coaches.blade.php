@@ -16,6 +16,31 @@
 
 
 @section('content')
+
+@foreach($coaches as $coach)
+<div class="modal fade" id="{{$coach->slug}}" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Delete Coach</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete {{$coach->first}} {{$coach->last}}? </p>
+      </div>
+      <div class="modal-footer">
+        {!! Form::open(['method' => 'DELETE', 'route' => ['staff.destroy', $coach->slug]])!!}
+			{!! Form::submit("Delete Coach", ['class'=>'btn btn-danger pull-left']) !!}
+		{!! Form::close()!!}
+
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@endforeach
+
+
 <div class="jumbotron">
   <div class="container">
     	
@@ -45,24 +70,31 @@
 			  <thead>
 			    <tr>
 			      <th>Coach</th>
-			      <th>Teams</th>
+			      {{-- <th>Teams</th> --}}
 			      <th><span class="pull-rigt">Actions</span></th>
 			    </tr>
 			  </thead>
 			  <tbody>
+			  @foreach($coaches as $coach)
 				<tr>
-					<td> <a href="/team/9u/2015/player/51235">Paul McGloin</a> </td>
-					<td> 9U (Head Coach), 10U (Assitant Coach), 13U (Assitant Coach) </td>
+					<td> <a href="{{ route('staff.show', [$coach->slug] )}} ">{{$coach->first}} {{$coach->last}}</a> </td>
+					{{-- <td> 9U (Head Coach), 10U (Assitant Coach), 13U (Assitant Coach) </td> --}}
 					<td> 
 						<div class="col-xs-6">
-							<a href="/dashboard/team/9u/2015/player/51235/edit/"><i class="fa fa-pencil fa-lg"></i></a> 
+							<a href="{{ route('staff.edit', [$coach->slug] )}} "><i class="fa fa-pencil fa-lg"></i></a> 
 						</div>
 
 						<div class="col-xs-6">
-							<a href="/dashboard/team/9u/2015/player/51235/edit/"><i class="fa fa-trash fa-lg"></i></a> 
+							<a href="#" data-toggle="modal" data-target="#{{$coach->slug}}"><i class="fa fa-trash fa-lg"></i></a> 
 						</div>
 					</td>
+
+
+					
+
+
 				</tr>
+				@endforeach
 
 			  </tbody>
 			</table>
@@ -81,21 +113,14 @@
 			<div class="panel panel-primary">
 				<div id="create-new-player" class="panel-heading"><strong>Add New Coach</strong></div>
 				<div class="panel-body">
-					<!--<p>Create a New Coach </p>-->
-					<form class="form-horizontal"> 
-						@include("forms.horizontal.input", ['id' => 'coach-first', 'label'=> 'First Name', 'placeholder'=>'e.g. John', 'required'=> true])
-						@include("forms.horizontal.input", ['id' => 'coach-last', 'label'=> 'Last Name', 'placeholder'=>'e.g. Doe', 'required'=> true])
-						@include("forms.horizontal.input", ['id' => 'coach-email','type' => 'email', 'label'=> 'Email:', 'placeholder'=>'e.g. JohnDoe@sandhogs.com','required'=> true])
-						@include("forms.horizontal.text", ['id' => 'coach-description', 'label'=> 'Coach Description', 'placeholder'=>'e.g. John is an expert pitching coach.'])
-						
-						<button type="submit" class="btn btn-primary pull-right">Coach Generator</button>
-					</form>
+					
+				{!! Form::open(['route' => ['staff.store'], 'class' => 'form-horizontal']) !!}
+						@include('coaches.form', ['btn'=>'Coach Generator'])
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
 	</div>
-
-
 
 
 </div>

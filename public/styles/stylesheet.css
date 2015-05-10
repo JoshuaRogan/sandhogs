@@ -12,6 +12,9 @@
   font-weight: normal;
   font-style: normal;
 }
+.font-bold {
+  font-weight: bold;
+}
 .font-p {
   color: #333333;
 }
@@ -153,11 +156,21 @@ h5 {
     font-size: 14px;
   }
 }
+.simple-padding-3 {
+  padding: 3%;
+}
+.simple-padding-5 {
+  padding: 5%;
+}
 .blokk {
   font-family: "BLOKKNeue-Regular", inherit;
 }
 .blokkReg {
   font-family: "BLOKKRegular", inherit;
+}
+.vertical-align {
+  margin-top: auto;
+  vertical-align: middle;
 }
 #home-banner {
   background: url(/img/home-banner.jpg) no-repeat center center;
@@ -251,7 +264,8 @@ h5 {
   text-align: center;
   opacity: 0.7;
 }
-body .btn {
+body .btn,
+body img {
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
 }
 body a {
@@ -399,6 +413,24 @@ body footer#footer img.logo {
 .page-home #doforyou .img-container {
   max-width: 100px;
   max-height: 100px;
+}
+.page-roster .profile .profile-image {
+  width: 20%;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+}
+@media (min-width: 768px) {
+  .page-roster .profile .profile-image {
+    width: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .page-roster .profile .profile-image {
+    width: 80%;
+  }
+}
+.page-roster .profile .gallery-image img {
+  margin-bottom: 5%;
 }
 .page-dashboard .jumbotron .fa {
   padding-top: 20px;

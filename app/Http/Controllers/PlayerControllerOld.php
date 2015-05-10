@@ -45,14 +45,16 @@ class PlayerController extends Controller {
 
 
 	/**
-	 * Show the current year roster
+	 * Show the profile for this player
 	 *
 	 * @return Response
 	 */
-	public function roster($year, $team)
+	public function profile($player_id)
 	{
-		return "$year Roster";
+		return view('profile.player');
 	}
+
+
 
 
 

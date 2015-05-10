@@ -29,8 +29,8 @@
 	<div id="upcomingEvents" class="col-xs-12 col-md-5"> 
 		<h2> Upcoming Events </h2>
 		<div class="alert alert-warning text-center row" role="alert">
-			<div class="col-xs-4"><i class="fa fa-exclamation fa-5x font-orange"></i></div>
-			<div class="col-xs-8"> <strong>There are no active events for the Sandhogs!</strong></div>
+			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
+			<div class="col-xs-8 simple-padding-3"> <strong>There are no active events for the Sandhogs!</strong></div>
 		</div>
 		<ul  class="list-unstyled events">
 			{{--@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])

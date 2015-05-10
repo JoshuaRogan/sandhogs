@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateCoachesTable extends Migration {
 
@@ -15,12 +16,15 @@ class CreateCoachesTable extends Migration {
 		Schema::create('coaches', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
 			$table->string('first');
 			$table->string('last');
 			$table->string('email');
-			$table->string('description');
-			$table->string('imgURL');
+			$table->string('description')->nullable();
+			$table->string('imgURL')->nullable();
+			$table->string('slug')->unique(); 
+
+			$table->softDeletes();
+			$table->timestamps();
 		});
 	}
 
