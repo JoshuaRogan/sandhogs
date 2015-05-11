@@ -29,7 +29,7 @@ class PlayerController extends Controller {
 	public function index()
 	{
 		//
-		return "Show all players?"; 
+		return Player::all(); 
 	}
 
 	/**
@@ -52,15 +52,7 @@ class PlayerController extends Controller {
 	public function store(Player $player, CreatePlayerRequest $request)
 	{
 		$player->fill($request->all());
-		$player->slug = strtolower(str_replace(" ", "", $player->first) . "-" . str_replace(" ", "", $player->last));
-
-		//Generate a unique slug
-		$i = 1;
-		while(Player::withTrashed()->where('slug', '=', $player->slug)->count() > 0){
-			$player->slug = strtolower(str_replace(" ", "", $player->first) . "-" . str_replace(" ", "", $player->last)) . "-" . $i;
-			$i++;
-		}
-
+		$player->slug = $player->first . "-" . $player->last; 
 		$player->save();
 
 		return redirect()->route('player.create');
@@ -96,7 +88,10 @@ class PlayerController extends Controller {
 	 */
 	public function update(Player $player, CreatePlayerRequest $request)
 	{
-		$player->fill($request->all())->save();
+		$player->fill($request->all());
+		$player->slug = $player->first . "-" . $player->last;
+		$player->save(); 
+
 		return redirect()->route('player.create');
 	}
 

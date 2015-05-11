@@ -27,19 +27,18 @@ class CoachController extends Controller {
 	{
 		//
 		// dd(Coach::all());
-		return "All Coaches"; 
+		return Coach::all(); 
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new coach.
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
 		$coaches = Coach::all(); 
-		return view('dashboard.coaches', compact('coaches'));
-
+		return view('coaches.create', compact('coaches'));
 	}
 
 	/**
@@ -50,14 +49,7 @@ class CoachController extends Controller {
 	public function store(Coach $coach, CreateCoachRequest $request)
 	{
 		$coach->fill($request->all());
-		$coach->slug = strtolower(str_replace(" ", "", $coach->first) . "-" . str_replace(" ", "", $coach->last));
-		//Generate a unique slug move this to the model
-		$i = 1;
-		while(Coach::withTrashed()->where('slug', '=', $coach->slug)->count() > 0){
-			$coach->slug = strtolower(str_replace(" ", "", $coach->first) . "-" . str_replace(" ", "", $coach->last)) . "-" . $i;
-			$i++;
-		}
-
+		$coach->slug = $coach->first . "-" . $coach->last; 
 		$coach->save();
 
 		return redirect()->route('staff.create');
@@ -85,7 +77,7 @@ class CoachController extends Controller {
 	 */
 	public function edit(Coach $coach)
 	{
-		return view('dashboard.coaches-edit', compact('coach'));
+		return view('coaches.edit', compact('coach'));
 	}
 
 	/**
@@ -96,7 +88,9 @@ class CoachController extends Controller {
 	 */
 	public function update(Coach $coach, CreateCoachRequest $request)
 	{
-		$coach->fill($request->all())->save();
+		$coach->fill($request->all());
+		$coach->slug = $coach->first . "-" . $coach->last; 
+		$coach->save();
 		return redirect()->route('staff.create');    
 	}
 

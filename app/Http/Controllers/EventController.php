@@ -4,8 +4,21 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class EventController extends Controller {
+
+	private $event; 
+
+	/** 
+	 *	Create an instance of the player controller 
+	 *
+	 */
+	public function __construct(Event $event){
+		$this->middleware('auth', ['except' => ['index', 'show']]);
+
+		$this->event = $event;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -15,6 +28,7 @@ class EventController extends Controller {
 	public function index()
 	{
 		//
+		return Event::all(); 
 	}
 
 	/**
@@ -24,7 +38,9 @@ class EventController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$events = Event::all(); 
+		// return "Hello";
+		return view('events.create', ['events'=>Event::all()]);
 	}
 
 	/**
@@ -43,9 +59,9 @@ class EventController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Event $event)
 	{
-		//
+		return $event; 
 	}
 
 	/**

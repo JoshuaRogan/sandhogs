@@ -48,7 +48,7 @@
 						{!! Form::submit("Update Player", ['class'=>'btn btn-primary pull-right']) !!}
 					{!! Form::close() !!}
 
-					{!! Form::open(['method' => 'DELETE', 'route' => ['staff.destroy', $player->slug]])!!}
+					{!! Form::open(['method' => 'DELETE', 'route' => ['player.destroy', $player->slug]])!!}
 						{!! Form::submit("Delete Player", ['class'=>'btn btn-danger pull-left']) !!}
 					{!! Form::close()!!}
 				</div>

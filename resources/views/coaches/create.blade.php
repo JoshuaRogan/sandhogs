@@ -111,7 +111,7 @@
 
 		<div class="col-xs-12"> 
 			<div class="panel panel-primary">
-				<div id="create-new-player" class="panel-heading"><strong>Add New Coach</strong></div>
+				<div id="create-new-coach" class="panel-heading"><strong>Add New Coach</strong></div>
 				<div class="panel-body">
 					
 				{!! Form::open(['route' => ['staff.store'], 'class' => 'form-horizontal']) !!}
