@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Event;
+use Storage;
 
 class EventController extends Controller {
 
@@ -15,7 +16,7 @@ class EventController extends Controller {
 	 *
 	 */
 	public function __construct(Event $event){
-		$this->middleware('auth', ['except' => ['index', 'show']]);
+		$this->middleware('auth', ['except' => ['index', 'show', 'schedule']]);
 
 		$this->event = $event;
 	}
@@ -96,5 +97,20 @@ class EventController extends Controller {
 	{
 		//
 	}
+
+	/**
+	 * Temporary schedule genator using JSON file
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function schedule()
+	{
+
+		$events = json_decode(Storage::get('json/schedule.json'));
+		return view('events.allEvents', ['events'=> $events]);
+	}
+
+
 
 }
