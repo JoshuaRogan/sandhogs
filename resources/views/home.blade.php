@@ -28,14 +28,14 @@
 
 	<div id="upcomingEvents" class="col-xs-12 col-md-5"> 
 		<h2> Upcoming Events </h2>
-		<div class="alert alert-warning text-center row" role="alert">
+		{{-- <div class="alert alert-warning text-center row" role="alert">
 			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
 			<div class="col-xs-8 simple-padding-3"> <strong>There are no active events for the Sandhogs!</strong></div>
-		</div>
+		</div> --}}
 		<ul  class="list-unstyled events">
-			{{--@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])
-			@include('events.homeEvent', ['name' => 'Battle of the Best', 'type' => 'Showcase'])
-			@include('events.homeEvent', ['name' => 'ECSH vs. RBDH', 'type' => 'Game'])--}}
+			@include('events.homeEvent', ['name' => 'NYEB All American', 'type' => 'Tourney', 'date' => 'August 1-2, 2015', 'location'=> 'Newburgh, NY', 'locationId' => 'Newburgh,NY', 'team'=>'10u & 13u', 'day'=> '1'])
+			@include('events.homeEvent', ['name' => 'August Strikeout', 'type' => 'Tourney', 'date' => 'August 14-16, 2015', 'location'=> 'Diamond Nation', 'locationId' => 'Flemington,NJ/DiamondNation', 'team'=>'17U Prospect', 'day'=> '14'])
+			@include('events.homeEvent', ['name' => 'All American Tourney', 'type' => 'Tourney', 'date' => 'August 14-16, 2015', 'location'=> 'Maple Zone Sports Complex', 'locationId' => 'Garnet Valley, PA/Maple Zone Sports Complex', 'team'=>'15-16U', 'day'=> '14'])
 		</ul>
 
 		<div class="col-xs-12"> 

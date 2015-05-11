@@ -67,6 +67,19 @@ class RootController extends Controller {
 		return view('about'); 
 	}
 
+	/**
+	 * 	
+	 *	Show contact us page 	 
+	 *		
+	 *
+	 * @return Response
+	 */
+	public function coaches()
+	{
+		return view('profile.coachAll');
+	}
+
+
 
 	/**
 	 * 	

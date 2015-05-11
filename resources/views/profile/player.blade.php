@@ -25,10 +25,10 @@
 
   	<div class="col-md-8">
   		<h3> {{ $player->{'Player'} }} <small><span class="pull-right">{{ $player->{'Team'} }}</span></small> </h3>
-  		<div> <strong>Team(s):</strong> <a href="#">13U</a>, <a href="#">14U</a> </div>
-  		<div> <strong>Position(s):</strong> {{ $randomPosition }} {{$randomPosition2 or ''}} </div>
-  		<div> <strong>Age:</strong> 15 </div>
-  		<div> <strong>Bio:</strong> {{ $player->{'Player'} }} shows great potential on and off the field as a member of the East Coast Sandhogs {{ $player->{'Team'} }} team. </div>
+  		{{-- <div> <strong>Team(s):</strong> <a href="#">13U</a>, <a href="#">14U</a> </div> --}}
+  		<div> <strong>Position(s):</strong> <samp class="pull-right"> Coming Soon </samp> </div>
+  		<div> <strong>Age:</strong> <samp class="pull-right"> Coming Soon </samp> </div>
+  		<div> <strong>Bio:</strong> <samp class="pull-right"> Coming Soon </samp> </div>
   		
 
   		<div class="panel-group" id="profile-extra-{{ $player->{'#'} }}" role="tablist" aria-multiselectable="true">
@@ -45,14 +45,14 @@
 	  					<div class="simple-padding-3">  
 	  						<h4> Batting Stats </h4>
 		  					<ul class="list-unstyled"> 	
-		  						<li> Average <span class='pull-right'>.500</span></li>
-		  						<li> Hits <span class='pull-right'>15</span></li>  				
+		  						<li> Average <samp><span class='pull-right'>Coming Soon</span></samp></li>
+		  						<li> Hits <samp><span class='pull-right'>Coming Soon</span></samp></li>  				
 		  					</ul>
 		  				
 		  					<h4> Pitching Stats </h4>
 		  					<ul class="list-unstyled"> 	
-		  						<li> Wins <span class='pull-right'>4</span></li>
-		  						<li> ERA <span class='pull-right'>2.25</span></li>  				
+		  						<li> Wins <samp><span class='pull-right'>Coming Soon</span></samp></li>
+		  						<li> ERA <samp><span class='pull-right'>Coming Soon</span></samp></li>  				
 		  					</ul>
 		  				</div>
 	  				</div>
@@ -73,9 +73,9 @@
 
 	  				<div id="collapsed-media-{{ $player->{'#'} }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-media-{{ $player->{'#'} }}">
 	  					<div class="simple-padding-3">  
-	  						{{-- <samp class="font-red font-bold"> There are no videos, images or files for this player </samp> --}}
+	  						<samp class="font-red font-bold"> There are no videos, images or files for this player </samp>
 	  						<div class="row"> 
-	  							<div class="col-xs-3"> 
+	  					{{-- 		<div class="col-xs-3"> 
 	  								<a href="#" class="gallery-image">
 										<img class="img-responsive" src="http://placehold.it/400x300" alt="">
 									</a>
@@ -121,7 +121,7 @@
 	  								<a href="#" class="gallery-image">
 										<img class="img-responsive" src="http://placehold.it/400x300" alt="">
 									</a>
-	  							</div>
+	  							</div> --}}
 
 
 
