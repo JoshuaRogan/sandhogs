@@ -37,6 +37,7 @@ class DashboardController extends Controller {
 	 */
 	public function teams()
 	{
+		// return "Hello World"; 
 		return view("dashboard.teams"); 
 	}
 

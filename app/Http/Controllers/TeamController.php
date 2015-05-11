@@ -1,55 +1,93 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Team;
 use App\Http\Controllers\Controller;
-use \Storage;
+
+use Illuminate\Http\Request;
+use App\Team;
+use Storage;
 
 class TeamController extends Controller {
-	/*
-	|--------------------------------------------------------------------------
-	| Team Controller
-	|--------------------------------------------------------------------------
-	|	
-	|
-	*/
 
 	/**
-	 * Show all of the rosters for the current year  
+	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index($year = 2015)
+	public function index()
 	{
-		//Get the roster for this 
-		return "Show all of the rosters ";
+		//
 	}
 
 	/**
-	 * Create a new team   
+	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
 	public function create()
-	{	
-		// $team = new Team; 
-		// $team->name = "9u";
-		// $team->description = "Players 9 or under"; 
-		// $team->save(); 
+	{
+		// Team::all(); //Just this year's teams 
 
-		// $team = new Team; 
-		// $team->name = "10u";
-		// $team->description = "Players 10 or under"; 
-		// $team->save(); 
+		return view('dashboard.teams'); 
+	}
 
-		// $team = Team::all()->delete(); 
-		// dd(Team::where('id', '<', 100)->delete());
-		dd(Team::all()); 
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		//
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		//
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		//
 	}
 
 
 	/**
-	 * View the roster for the correct age group and year 
+	 * View the roster for the correct age group and year (temporary JSON) 
 	 *
 	 * @return Response
 	 */
@@ -61,8 +99,7 @@ class TeamController extends Controller {
 		// return var_dump($year, $age_group) . "year = $year " . "age group = $age_group"; 
 		// return dd($request, $year, $age_group); 
 
-
-
+		
 		return view("team.roster", ["age_group"=> $age_group, "roster"=> json_decode(Storage::get('json/roster.json'))]);
 	}
 

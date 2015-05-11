@@ -18,11 +18,10 @@ class CreateCoachesTable extends Migration {
 			$table->increments('id');
 			$table->string('first');
 			$table->string('last');
+			$table->string('slug')->unique(); 
 			$table->string('email');
 			$table->string('description')->nullable();
 			$table->string('imgURL')->nullable();
-			$table->string('slug')->unique(); 
-
 			$table->softDeletes();
 			$table->timestamps();
 		});

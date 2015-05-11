@@ -19,10 +19,11 @@ class CreatePlayersTable extends Migration {
 			$table->timestamps();
 			$table->string('first');
 			$table->string('last');
-			$table->string('position');
-			$table->string('bio');
-			$table->string('email');
-			$table->string('imgURL');
+			$table->string('slug')->unique();
+			$table->string('position')->nullable();
+			$table->string('bio')->nullable();
+			$table->string('email')->nullable();
+			$table->string('imgURL')->nullable();
 			$table->softDeletes();
 		});
 	}

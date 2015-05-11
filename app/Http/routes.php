@@ -11,33 +11,52 @@
 |
 */
 
+//Any type of coach (a.k.a. staff) resource 
 Route::bind('staff', function($slug)
 {
 	return App\Coach::whereSlug($slug)->first();
 });
 Route::resource('staff', 'CoachController'); 
 
+//Player Resource 
+Route::bind('player', function($slug)
+{
+	return App\Player::whereSlug($slug)->first();
+});
+Route::resource('player', 'PlayerController'); 
+
+//Event Resource 
+Route::bind('event', function($slug)
+{
+	return App\Event::whereSlug($slug)->first();
+});
+Route::resource('event', 'EventController'); 
+
+//Team Resource 
+Route::bind('team', function($slug) 
+{
+	//!!!!WONT BE A SLUG 
+	return App\Team::whereSlug($slug)->first();
+});
+Route::resource('team', 'TeamController'); 
 
 
 
 
+//Root (mostly) static pages 
 Route::get('/', 'RootController@index');
 Route::get('home', 'RootController@index');
-Route::get('splash', 'RootController@splash');
-Route::get('contact', 'RootController@contact');
+Route::get('splash', 'RootController@soon');
+Route::get('contact', 'RootController@soon');
 Route::get('about', 'RootController@about');
 Route::get('store', 'RootController@soon');
 
 
 
 
-// //Teams (i.e. roster/coach information)
-Route::get('team/', 'TeamController@index'); //Show all of the teams 
-Route::get('teams/', 'TeamController@index'); //Show all of the teams  
-Route::get('team/{age_group}', 'TeamController@roster'); //Change this to a redirect to current year 
-Route::get('team/{age_group}/{year}', 'TeamController@roster');
-Route::get('teams/{age_group}', 'TeamController@roster'); //Change this to a redirect to current year 
-Route::get('teams/{age_group}/{year}', 'TeamController@roster');
+// Temporary roster controller 
+Route::get('roster/{age_group}', 'TeamController@roster'); //Change this to a redirect to current year 
+Route::get('roster/{age_group}/{year}', 'TeamController@roster');
 
 
 
@@ -75,15 +94,11 @@ Route::get('teams/{age_group}/{year}', 'TeamController@roster');
 
 
 // 	//Creating, Updating, Deleting
-	
 
 
-
-
-
-Route::get('dashboard/team/create', 'TeamController@create');
-Route::get('dashboard/player/create', 'PlayerController@create');
-Route::get('dashboard/teams/', 'TeamController@create');
+// Route::get('dashboard/team/create', 'TeamController@create');
+// Route::get('dashboard/player/create', 'PlayerController@create');
+// Route::get('dashboard/teams/', 'TeamController@create');
 
 
 // Rout unauthenicated users to the login page 

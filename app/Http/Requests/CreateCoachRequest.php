@@ -22,8 +22,8 @@ class CreateCoachRequest extends Request {
 	public function rules()
 	{
 		return [
-			'first' => 'required',
-			'last' => 'required',
+			'first' => 'required|min:2',
+			'last' => 'required|min:2',
 			'email' => 'required'
 		];
 	}

@@ -13,7 +13,7 @@ class CoachController extends Controller {
 
 
 	public function __construct(Coach $coach){
-		$this->beforeFilter('auth', ['except' => 'destroy']);
+		$this->middleware('auth', ['except' => ['index', 'show']]);
 
 		$this->coach = $coach;
 	}
@@ -37,7 +37,9 @@ class CoachController extends Controller {
 	 */
 	public function create()
 	{
-		return view('dashboard.coaches', ['coaches'=>Coach::all()]);
+		$coaches = Coach::all(); 
+		return view('dashboard.coaches', compact('coaches'));
+
 	}
 
 	/**
@@ -49,7 +51,7 @@ class CoachController extends Controller {
 	{
 		$coach->fill($request->all());
 		$coach->slug = strtolower(str_replace(" ", "", $coach->first) . "-" . str_replace(" ", "", $coach->last));
-		//Generate a unique slug
+		//Generate a unique slug move this to the model
 		$i = 1;
 		while(Coach::withTrashed()->where('slug', '=', $coach->slug)->count() > 0){
 			$coach->slug = strtolower(str_replace(" ", "", $coach->first) . "-" . str_replace(" ", "", $coach->last)) . "-" . $i;
@@ -83,8 +85,7 @@ class CoachController extends Controller {
 	 */
 	public function edit(Coach $coach)
 	{
-
-		return view('dashboard.coaches-edit', ['coach'=> $coach]);
+		return view('dashboard.coaches-edit', compact('coach'));
 	}
 
 	/**

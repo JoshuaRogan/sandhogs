@@ -4,8 +4,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Coach extends Model {
+	
+	//Soft deleting 
 	use SoftDeletes;
-
     protected $dates = ['deleted_at'];
 
     
@@ -20,13 +21,13 @@ class Coach extends Model {
 		'first', 'last', 'email', 'description'
 	];
 
+
 	/**
-	 *	Profile for this coach
-	 *
-	 */
-	public function profile()
-    {
-        return $this->hasOne('App\Profile');
+     *	Usually just belongs to one team by can be on more 
+     *	than one. 
+     */
+    public function teams(){
+    	return $this->belongsToMany('App\Team'); 
     }
 
 }
