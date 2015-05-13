@@ -10,7 +10,6 @@ use App\Coach;
 use App\Player;
 use App\Event;
 
-
 use Storage;
 
 class TeamController extends Controller {
@@ -35,7 +34,7 @@ class TeamController extends Controller {
 	 */
 	public function index(Team $team)
 	{
-		return Team::all(); 
+		return Team::visible()->get();
 	}
 
 	/**
@@ -48,8 +47,9 @@ class TeamController extends Controller {
 		$coaches = Coach::all();  
 		$players = Player::all(); 
 		$events = Event::all(); 
+		$teams = Team::visible()->get(); 
 
-		return view('teams.create', compact('coaches', 'players', 'events')); 
+		return view('teams.create', compact('coaches', 'players', 'events', 'teams')); 
 	}
 
 	/**
@@ -63,15 +63,16 @@ class TeamController extends Controller {
 		$team->slug = $team->name . "-" . $team->year; 
 		$team->save(); 
 
-		$team->addCoaches($request->input('coaches')); 
-		$team->addPlayers($request->input('players')); 
-		// $team->addEvents($request->input('events')); 
-		// dd($team->coaches()); 
+		//Update relationships 
+		$team->coaches()->sync((array)$request->input('coaches')); 
+		$team->players()->sync((array)$request->input('players')); 
+		$team->events()->sync((array)$request->input('events')); 
 
 		$team->push();
 
-
-		dd($team->coaches);
+		// dd($team->coaches);
+		// dd($team, $team->coaches, $team->players, $team->events);
+		return redirect()->route('team.edit', compact($team)); //If there were any coaches or players go to next form to give them numbers and positions 
 	}
 
 	/**
@@ -91,9 +92,9 @@ class TeamController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Team $team)
 	{
-		//
+		return view('teams.edit', compact('team'));
 	}
 
 	/**
@@ -102,9 +103,19 @@ class TeamController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Team $team, Request $request)
 	{
-		//
+		$team->fill($request->all()); 
+		$team->update(); 
+
+		//Update relationships 
+		$team->coaches()->sync((array)$request->input('coaches')); 
+		$team->players()->sync((array)$request->input('players')); 
+		$team->events()->sync((array)$request->input('events')); 
+
+		$team->push();
+
+		return redirect()->route('team.edit', $team->slug); //If there were any coaches or players go to next form to give them numbers and positions 
 	}
 
 	/**
@@ -113,9 +124,9 @@ class TeamController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Team $team, Request $request)
 	{
-		//
+		return $team; 
 	}
 
 

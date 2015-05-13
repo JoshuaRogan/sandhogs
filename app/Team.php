@@ -15,34 +15,28 @@ class Team extends Model {
 	protected $fillable = ['name', 'description', 'year'];
 
 	/**
-	 * Sync all of the coaches to this team 
+	 * Only get the teams that are currently visible. 
 	 * 
-	 * @param type $coachIds 
+	 * @param type $query 
+	 * @return type $query
 	 */
-	public function addCoaches($coachIds){
-		$syncArray = Array(); 
-		
-		foreach($coachIds as $coachId){
-			$syncArray[$coachId] = (array("number" => 10));  
-		}
+	public function scopeVisible($query)
+    {
+        return $query->where('visible', '=', true);
+    }
 
-		$this->coaches()->sync($syncArray); 
-	}
-
-	/**
-	 * Sync all of the coaches to this team 
+    /**
+	 * Only get the teams that are currently visible. 
 	 * 
-	 * @param type $coachIds 
+	 * @param type $query 
+	 * @return type $query
 	 */
-	public function addPlayers($playerIds){
-		$syncArray = Array(); 
-		
-		foreach($coachIds as $coachId){
-			$syncArray[$coachId] = (array("number" => 10));  
-		}
+	public function scopeNewPlayers($query)
+    {
+        return $query->where('visible', '=', true);
+    }
 
-		$this->coaches()->sync($syncArray); 
-	}
+
 
 
 	/**

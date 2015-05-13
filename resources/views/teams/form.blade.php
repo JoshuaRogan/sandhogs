@@ -36,9 +36,9 @@
 		
 		<div>
 			<div> 
-				@foreach ($coaches as $coach)
+				@foreach (App\Coach::all() as $coach)
 		        <label class="checkbox-inline">
-		           {!! Form::checkbox('coaches[]', $coach->id, null) !!} 
+		           {!! Form::checkbox('coaches[]', $coach->id, false) !!} 
 		           {{$coach->full_name}}
 		        </label>
 		        @endforeach
@@ -53,9 +53,16 @@
 	<div class="col-sm-10" id="players">
 		<div>
 			<div> 
-				@foreach ($players as $player)
+				@foreach ($team->players as $player)
 		        <label class="checkbox-inline">
-		           {!! Form::checkbox('players[]', $player->id, null) !!} 
+		           <input checked name="players[]" type="checkbox" value="{{$player->id}}">
+		           {{$player->full_name}}
+		        </label>
+		        @endforeach
+
+		        @foreach (App\Player::all() as $player)
+		        <label class="checkbox-inline">
+		           <input name="players[]" type="checkbox" value="{{$player->id}}">
 		           {{$player->full_name}}
 		        </label>
 		        @endforeach
@@ -71,9 +78,9 @@
 		
 		<div>
 			<div> 
-				@foreach ($events as $event)
+				@foreach (App\Event::all() as $event)
 		        <label class="checkbox-inline">
-		           {!! Form::checkbox('events[]', $event->id, null) !!} 
+		           {!! Form::checkbox('events[]', $event->id, false) !!} 
 		           {{$event->name}}
 		        </label>
 		        @endforeach

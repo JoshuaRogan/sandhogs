@@ -20,6 +20,7 @@ class CreateTeamsTable extends Migration {
 			$table->string('slug')->unique();
 			$table->integer('year')->unsigned();
 			$table->string('description');
+			$table->boolean('visible')->default(false);
 			$table->softDeletes();
 			$table->timestamps();
 		});
