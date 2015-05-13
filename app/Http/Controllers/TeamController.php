@@ -28,7 +28,7 @@ class TeamController extends Controller {
 	{
 		// Team::all(); //Just this year's teams 
 
-		return view('dashboard.teams'); 
+		return view('teams.create'); 
 	}
 
 	/**

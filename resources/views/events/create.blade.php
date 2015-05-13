@@ -39,19 +39,7 @@
 @endforeach
 
 
-<div class="jumbotron">
-  <div class="container">
-  		<div class="row"> 
-  			<div class="col-sm-2 hidden-xs">
-  				<div class="center-block"><i class="fa fa-calendar fa-5x font-primary"></i></div>
-  			</div>
-	  		<div class="col-sm-10"> 
-	    		<h2> East Coast Sandhogs Events Editing </h2>
-				<p> Use this page to update events of the East Coast Sandhogs</p>
-			</div>
-		</div> 
-  </div>
-</div>
+@include('dashboard.jumbotron', ['heading' => 'East Coast Sandhogs Events Editing', 'content' => 'Use this page to update events of the East Coast Sandhogs', 'icon'=>'fa-calendar'])
 
 
 
@@ -96,8 +84,7 @@
 			</table>
 		</div>
 
-
-
+		
 	</div>
 
 	<h3><i class="fa fa-user-plus"></i> Create Events</h3>
@@ -109,7 +96,7 @@
 				<div id="create-new-event" class="panel-heading"><strong>Add New Event</strong></div>
 				<div class="panel-body">
 					
-				{!! Form::open(['route' => ['staff.store'], 'class' => 'form-horizontal']) !!}
+				{!! Form::open(['route' => ['event.store'], 'class' => 'form-horizontal']) !!}
 						@include('events.form')
 						{!! Form::submit("Create Event", ['class'=>'btn btn-primary pull-right']) !!}
 				{!! Form::close() !!}

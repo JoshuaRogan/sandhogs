@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\CreateEventRequest;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -17,7 +18,6 @@ class EventController extends Controller {
 	 */
 	public function __construct(Event $event){
 		$this->middleware('auth', ['except' => ['index', 'show', 'schedule']]);
-
 		$this->event = $event;
 	}
 
@@ -28,37 +28,40 @@ class EventController extends Controller {
 	 */
 	public function index()
 	{
-		//
 		return Event::all(); 
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new Event.
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
 		$events = Event::all(); 
-		// return "Hello";
 		return view('events.create', ['events'=>Event::all()]);
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
+	 * Create a new event
+	 * 
+	 * @param type Event $event 
+	 * @param type CreateEventRequest $request 
+	 * @return type
 	 */
-	public function store()
+	public function store(Event $event, CreateEventRequest $request)
 	{
-		//
+		$event->fill($request->all());
+		$event->slug = $event->name;
+		$event->save();
+
+		return redirect()->route('event.create');
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
+	 * Description
+	 * @param type Event $event 
+	 * @return type
 	 */
 	public function show(Event $event)
 	{
@@ -71,20 +74,24 @@ class EventController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Event $event)
 	{
-		//
+		return view('events.edit', ['event'=> $event]);
 	}
 
 	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
+	 * Update a an existing event. Not changing the slug. 
+	 * 
+	 * @param type Event $event 
+	 * @param type CreateEventRequest $request 
+	 * @return type
 	 */
-	public function update($id)
+	public function update(Event $event, CreateEventRequest $request)
 	{
-		//
+		$event->fill($request->all());
+		$event->save();
+		
+		return redirect()->route('event.create');
 	}
 
 	/**
@@ -106,7 +113,6 @@ class EventController extends Controller {
 	 */
 	public function schedule()
 	{
-
 		$events = json_decode(Storage::get('json/schedule.json'));
 		return view('events.allEvents', ['events'=> $events]);
 	}

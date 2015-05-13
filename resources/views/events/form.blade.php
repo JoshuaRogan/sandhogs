@@ -1,3 +1,14 @@
+@section('styles')
+	@parent
+	<link rel="stylesheet" type="text/css" href="{{asset('/styles/datepicker/bootstrap-datepicker.standalone.min.css')}}">
+@stop
+
+@section('lazyscripts')
+	@parent
+	<script src="{{asset('/js/bootstrap-datepicker.min.js')}}"></script>
+	<script src="{{asset('/js/event.js')}}"></script>
+@stop
+
 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}"> 
 	{!! Form::label('name', 'Event Name*', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-10">
@@ -9,27 +20,34 @@
 <div class="form-group {{ $errors->has('location') ? 'has-error' : '' }}"> 
 	{!! Form::label('location', 'Location*', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-10">
+		
 		{!! Form::text('location', null, ['class' => 'form-control', 'placeholder' => 'e.g. Philadelphia, PA', 'required'=>'required']) !!}
 		{!! $errors->first('location', '<span class="help-block">:message</span>')!!}
+
 	</div>
 </div>
 
 <div class="form-group {{ $errors->has('start_date') ? 'has-error' : '' }}"> 
-	{!! Form::label('start_date', 'Start Date*', ['class' => 'col-sm-2 control-label', 'required'=>'required']) !!}
+	{!! Form::label('start_date', 'Start Date*', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-10">
-		{!! Form::input('date', 'start_date', null, ['class' => 'form-control', 'required'=>'required']) !!}
-		{!! $errors->first('start_date', '<span class="help-block">:message</span>')!!}
+		<div class="input-group"> 
+			{!! Form::input('text', 'start_date', null, ['class' => 'form-control', 'required'=>'required','type'=>'text', 'placeholder'=> 'e.g. 2015-01-27']) !!}
+			{!! $errors->first('start_date', '<span class="help-block">:message</span>')!!}
+			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+		</div>
 	</div>
 </div>
 
 <div class="form-group {{ $errors->has('end_date') ? 'has-error' : '' }}"> 
-	{!! Form::label('end_date', 'End Date*', ['class' => 'col-sm-2 control-label', 'required'=>'required']) !!}
+	{!! Form::label('end_date', 'End Date*', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-10">
-		{!! Form::input('date', 'end_date', null, ['class' => 'form-control']) !!}
-		{!! $errors->first('end_date', '<span class="help-block">:message</span>')!!}
+		<div class="input-group"> 
+			{!! Form::input('text', 'end_date', null, ['class' => 'form-control','type'=>'text', 'placeholder'=> 'e.g. 2015-01-29']) !!}
+			{!! $errors->first('end_date', '<span class="help-block">:message</span>')!!}
+			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+		</div>
 	</div>
 </div>
-
 
 <div class="form-group"> 
 	{!! Form::label('description', 'Event Description:', ['class' => 'col-sm-2 control-label']) !!}

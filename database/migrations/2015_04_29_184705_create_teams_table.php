@@ -16,11 +16,12 @@ class CreateTeamsTable extends Migration {
 		Schema::create('teams', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
 			$table->string('name');
+			$table->string('slug')->unique();
 			$table->integer('year')->unsigned();
 			$table->string('description');
 			$table->softDeletes();
+			$table->timestamps();
 		});
 	}
 

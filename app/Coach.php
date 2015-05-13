@@ -23,16 +23,21 @@ class Coach extends Model {
 
 
 	/**
-     *	Usually just belongs to one team by can be on more 
-     *	than one. 
-     */
+	 * Description
+	 * 
+	 * @return Team
+	 */
     public function teams(){
     	return $this->belongsToMany('App\Team'); 
     }
 
     /**
-     *	Loop until there is a valid slug
-     *
+     * Make sure the slug attribute is unique whenever it is 
+     * updated. CHECK IT AGAINST ITSELF!!
+     * 
+     * 
+     * @param String $value 
+     * 
      */
     public function setSlugAttribute($value){
     	$base_slug = urlencode(strtolower($value)); 

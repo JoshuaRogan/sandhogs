@@ -18,8 +18,8 @@ class CreateEventsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('slug')->unique();
-			$table->dateTime('start_date');
-			$table->dateTime('end_date');
+			$table->date('start_date');
+			$table->date('end_date');
 			$table->string('location');
 			$table->string('description')->nullable();
 			$table->timestamps();

@@ -12,33 +12,33 @@
 */
 
 //Any type of coach (a.k.a. staff) resource 
-// Route::bind('staff', function($slug)
-// {
-// 	return App\Coach::whereSlug($slug)->first();
-// });
-// Route::resource('staff', 'CoachController'); 
+Route::bind('staff', function($slug)
+{
+	return App\Coach::whereSlug($slug)->first();
+});
+Route::resource('staff', 'CoachController'); 
 
-// //Player Resource 
-// Route::bind('player', function($slug)
-// {
-// 	return App\Player::whereSlug($slug)->first();
-// });
-// Route::resource('player', 'PlayerController'); 
+//Player Resource 
+Route::bind('player', function($slug)
+{
+	return App\Player::whereSlug($slug)->first();
+});
+Route::resource('player', 'PlayerController'); 
 
-// //Event Resource 
-// Route::bind('event', function($slug)
-// {
-// 	return App\Event::whereSlug($slug)->first();
-// });
-// Route::resource('event', 'EventController'); 
+//Event Resource 
+Route::bind('event', function($slug)
+{
+	return App\Event::whereSlug($slug)->first();
+});
+Route::resource('event', 'EventController'); 
 
-// //Team Resource 
-// Route::bind('team', function($slug) 
-// {
-// 	//!!!!WONT BE A SLUG 
-// 	return App\Team::whereSlug($slug)->first();
-// });
-// Route::resource('team', 'TeamController'); 
+//Team Resource 
+Route::bind('team', function($slug) 
+{
+	//!!!!WONT BE A SLUG 
+	return App\Team::whereSlug($slug)->first();
+});
+Route::resource('team', 'TeamController'); 
 
 
 

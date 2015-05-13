@@ -2,8 +2,8 @@
 @extends('skeleton.default_header')
 @extends('skeleton.default_footer')
 
-@section('title', 'Dashboard - Coaches')
-@section('description', 'Make changes to the the coaching staff of the East Coast Sandhogs.')
+@section('title', 'Dashboard - Players')
+@section('description', 'Make changes to the the players of the East Coast Sandhogs.')
 @section('pageclass', 'page-dashboard page-db-players')
 
 @section('styles')
@@ -40,7 +40,7 @@
 		<div class="col-xs-12"> 
 			<div class="panel panel-primary">
 
-				<div id="create-new-coach" class="panel-heading"><strong>Edit Coach</strong></div>
+				<div id="create-new-player" class="panel-heading"><strong>Edit Player</strong></div>
 				
 				<div class="panel-body">
 					{!! Form::model($player, ['route' => ['player.update', $player->slug], 'method' => 'PATCH', 'class' => 'form-horizontal']) !!}
