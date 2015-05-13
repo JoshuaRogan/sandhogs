@@ -31,6 +31,16 @@ class Player extends Model {
     	return $this->belongsToMany('App\Team'); 
     }
 
+	/**
+	 * Return the full name of this player 
+	 * 
+	 * @return String full_name
+	 */
+	public function getFullNameAttribute(){
+		return "$this->first $this->last"; 
+	}
+
+
    /**
      *	Loop until there is a valid slug
      *

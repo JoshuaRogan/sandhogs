@@ -4,19 +4,38 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+
 use App\Team;
+use App\Coach;
+use App\Player;
+use App\Event;
+
+
 use Storage;
 
 class TeamController extends Controller {
+
+
+	private $team; 
+
+	/** 
+	 *	Create an instance of the player controller 
+	 *
+	 */
+	public function __construct(Event $team){
+		$this->middleware('auth', ['except' => ['index', 'show']]);
+		$this->team = $team;
+	}
+
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Team $team)
 	{
-		//
+		return Team::all(); 
 	}
 
 	/**
@@ -26,9 +45,11 @@ class TeamController extends Controller {
 	 */
 	public function create()
 	{
-		// Team::all(); //Just this year's teams 
+		$coaches = Coach::all();  
+		$players = Player::all(); 
+		$events = Event::all(); 
 
-		return view('teams.create'); 
+		return view('teams.create', compact('coaches', 'players', 'events')); 
 	}
 
 	/**
@@ -36,9 +57,21 @@ class TeamController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Team $team, Request $request)
 	{
-		//
+		$team->fill($request->all());
+		$team->slug = $team->name . "-" . $team->year; 
+		$team->save(); 
+
+		$team->addCoaches($request->input('coaches')); 
+		$team->addPlayers($request->input('players')); 
+		// $team->addEvents($request->input('events')); 
+		// dd($team->coaches()); 
+
+		$team->push();
+
+
+		dd($team->coaches);
 	}
 
 	/**
@@ -47,9 +80,9 @@ class TeamController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Team $team)
 	{
-		//
+		return $team; 
 	}
 
 	/**

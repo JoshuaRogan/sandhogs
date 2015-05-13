@@ -89,7 +89,6 @@ class PlayerController extends Controller {
 	public function update(Player $player, CreatePlayerRequest $request)
 	{
 		$player->fill($request->all());
-		$player->slug = $player->first . "-" . $player->last;
 		$player->save(); 
 
 		return redirect()->route('player.create');

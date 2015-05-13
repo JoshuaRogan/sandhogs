@@ -34,7 +34,6 @@
 			@include("dashboard.menu-item", ['url' => '/dashboard/team/9u/2015', 'title'=> '9U', 'icon'=> 'fa-users', 'columnSize' => 'col-sm-3', 'description'=> "Players nine and under."])
 			@include("dashboard.menu-item", ['url' => '/dashboard/team/9u/2015', 'title'=> '9U', 'icon'=> 'fa-users', 'columnSize' => 'col-sm-3', 'description'=> "Players nine and under."])
 			@include("dashboard.menu-item", ['url' => '/dashboard/team/9u/2015', 'title'=> '9U', 'icon'=> 'fa-users', 'columnSize' => 'col-sm-3', 'description'=> "Players nine and under.", 'approval'=>true, 'admin' => true])
-	
 		</div>
 
 	</div>
@@ -45,21 +44,10 @@
 				<div id="create-new-team" class="panel-heading">Create New Team</div>
 				<div class="panel-body">
 					<p>Add a team/age group to the East Coast Sandhogs Organization. <strong class="font-red"> Requires Admin Approval!</strong></p>
-					<form class="form-horizontal"> 
-						@include("forms.horizontal.input", ['id' => 'team-name', 'label'=> 'Team Name', 'placeholder'=>'e.g. 10U', 'required'=> true])
-						@include("forms.horizontal.input", ['id' => 'team-year', 'label'=> 'Year', 'placeholder'=>'e.g. 2015', 'value' => 2015, 'disabled' => true])
-						@include("forms.horizontal.text", ['id' => 'team-description', 'label'=> 'Team Description', 'placeholder'=>'e.g. Players younger than 10.'])
-
-						<div class="form-group">
-							<label for="coach-list" class="col-sm-2 control-label">Coaches</label>
-							<div class="col-sm-10" id="coach-list">
-								@include("forms.horizontal.checkbox", ['id' => '1', 'label'=> 'Paul McGloin', 'inline' => true])
-								@include("forms.horizontal.checkbox", ['id' => '52', 'label'=> 'Joe Curreri', 'inline' => true])
-								<a href="#" class="checkbox-inline"><i class="fa fa-plus-circle"></i> Add Coach</a></label>
-							</div>
-						</div>
-
-						<button type="submit" class="btn btn-primary pull-right">Create Team</button>
+						{!! Form::model(new App\Team, ['route' => ['team.store'], 'class' => 'form-horizontal']) !!}
+							@include('teams.form')
+							{!! Form::submit("Create Team", ['class'=>'btn btn-primary pull-right']) !!}
+						{!! Form::close() !!}
 					</form>
 				</div>
 			</div>

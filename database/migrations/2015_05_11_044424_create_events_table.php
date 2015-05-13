@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration {
 			$table->date('end_date');
 			$table->string('location');
 			$table->string('description')->nullable();
+			$table->string('results')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

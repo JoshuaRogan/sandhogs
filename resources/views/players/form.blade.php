@@ -33,9 +33,9 @@
 
 
 <div class="form-group"> 
-	{!! Form::label('description', 'Bio:', ['class' => 'col-sm-2 control-label']) !!}
+	{!! Form::label('bio', 'Bio:', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-10">
-		{!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'e.g. John is a power hitting lefty.', 'rows'=>3]) !!}
+		{!! Form::textarea('bio', null, ['class' => 'form-control', 'placeholder' => 'e.g. John is a power hitting lefty.', 'rows'=>3]) !!}
 	</div>
 </div>
 

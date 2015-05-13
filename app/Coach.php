@@ -32,6 +32,15 @@ class Coach extends Model {
     }
 
     /**
+     * Return the full name of this coach 
+     * 
+     * @return String full_name
+     */
+    public function getFullNameAttribute(){
+    	return "$this->first $this->last"; 
+    }
+
+    /**
      * Make sure the slug attribute is unique whenever it is 
      * updated. CHECK IT AGAINST ITSELF!!
      * 

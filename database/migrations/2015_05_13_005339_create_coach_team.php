@@ -21,7 +21,7 @@ class CreateCoachTeam extends Migration {
 			$table->integer('team_id')->unsigned()->index();
 			$table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade'); 
 
-			$table->integer('number')->unsigned(); //The number this coach is on the team
+			$table->integer('number')->unsigned()->nullable(); //The number this coach is on the team
 
 			$table->softDeletes();
 

@@ -89,7 +89,6 @@ class CoachController extends Controller {
 	public function update(Coach $coach, CreateCoachRequest $request)
 	{
 		$coach->fill($request->all());
-		$coach->slug = $coach->first . "-" . $coach->last; 
 		$coach->save();
 		return redirect()->route('staff.create');    
 	}

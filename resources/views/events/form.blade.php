@@ -49,10 +49,18 @@
 	</div>
 </div>
 
-<div class="form-group"> 
+<div class="form-group {{ $errors->has('results') ? 'has-error' : '' }}"> 
 	{!! Form::label('description', 'Event Description:', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-10">
 		{!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'e.g. The All American Tournament represents the best players from the East Coast.', 'rows'=>3]) !!}
+	</div>
+</div>
+
+<div class="form-group {{ $errors->has('results') ? 'has-error' : '' }}"> 
+	{!! Form::label('results', 'Event Results:', ['class' => 'col-sm-2 control-label']) !!}
+	<div class="col-sm-10">
+		{!! Form::textarea('results', null, ['class' => 'form-control', 'placeholder' => 'e.g. Sandhogs 9U won 4 out of 6 game and finished 4th. Only set upon event completion. ', 'rows'=>3]) !!}
+		{!! $errors->first('results', '<span class="help-block">:message</span>')!!}
 	</div>
 </div>
 
