@@ -25,9 +25,8 @@ class CoachController extends Controller {
 	 */
 	public function index()
 	{
-		//
-		// dd(Coach::all());
-		return Coach::all(); 
+
+		return view('coaches.index', ['coaches'=>Coach::all()]);
 	}
 
 	/**
@@ -51,6 +50,9 @@ class CoachController extends Controller {
 		$coach->fill($request->all());
 		$coach->slug = $coach->first . "-" . $coach->last; 
 		$coach->save();
+
+		$coach->teams()->sync((array)$request->input('teams'));
+		$coach->push(); 
 
 		return redirect()->route('staff.create');
 	}
@@ -90,6 +92,11 @@ class CoachController extends Controller {
 	{
 		$coach->fill($request->all());
 		$coach->save();
+
+		$coach->teams()->sync((array)$request->input('teams'));
+		$coach->push(); 
+
+		
 		return redirect()->route('staff.create');    
 	}
 

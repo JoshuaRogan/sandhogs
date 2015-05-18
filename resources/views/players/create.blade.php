@@ -111,10 +111,9 @@
 			<div class="panel panel-primary">
 				<div id="create-new-player" class="panel-heading"><strong>Add New Player</strong></div>
 				<div class="panel-body">
-					
-				{!! Form::open(['route' => ['player.store'], 'class' => 'form-horizontal']) !!}
-						@include('players.form')
-						{!! Form::submit("Create Player", ['class'=>'btn btn-primary pull-right']) !!}
+				{!! Form::model($player = new App\Player, ['route' => ['player.store'], 'class' => 'form-horizontal']) !!}
+					@include('players.form')
+					{!! Form::submit("Create Player", ['class'=>'btn btn-primary pull-right']) !!}
 				{!! Form::close() !!}
 				</div>
 			</div>

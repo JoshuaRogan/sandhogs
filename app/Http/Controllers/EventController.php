@@ -28,7 +28,7 @@ class EventController extends Controller {
 	 */
 	public function index()
 	{
-		return Event::all(); 
+		return view('events.index', ['events'=>Event::all()]);
 	}
 
 	/**
@@ -54,6 +54,9 @@ class EventController extends Controller {
 		$event->fill($request->all());
 		$event->slug = $event->name;
 		$event->save();
+
+		$event->teams()->sync((array)$request->input('teams'));
+		$event->push();
 
 		return redirect()->route('event.create');
 	}
@@ -90,6 +93,9 @@ class EventController extends Controller {
 	{
 		$event->fill($request->all());
 		$event->save();
+
+		$event->teams()->sync((array)$request->input('teams'));
+		$event->push();
 		
 		return redirect()->route('event.create');
 	}

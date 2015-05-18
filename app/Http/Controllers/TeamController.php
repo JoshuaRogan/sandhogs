@@ -34,7 +34,7 @@ class TeamController extends Controller {
 	 */
 	public function index(Team $team)
 	{
-		return Team::visible()->get();
+		return view('teams.index', ['teams'=> Team::visible()->get()]);
 	}
 
 	/**
@@ -44,12 +44,10 @@ class TeamController extends Controller {
 	 */
 	public function create()
 	{
-		$coaches = Coach::all();  
-		$players = Player::all(); 
-		$events = Event::all(); 
 		$teams = Team::visible()->get(); 
+		$hidden_teams = Team::NotVisible()->get(); 
 
-		return view('teams.create', compact('coaches', 'players', 'events', 'teams')); 
+		return view('teams.create', compact('teams', 'hidden_teams')); 
 	}
 
 	/**
@@ -70,9 +68,8 @@ class TeamController extends Controller {
 
 		$team->push();
 
-		// dd($team->coaches);
-		// dd($team, $team->coaches, $team->players, $team->events);
-		return redirect()->route('team.edit', compact($team)); //If there were any coaches or players go to next form to give them numbers and positions 
+		return redirect()->route('team.edit', $team->slug); //If there were any coaches or players go to next form to give them numbers and positions 
+
 	}
 
 	/**
@@ -83,7 +80,7 @@ class TeamController extends Controller {
 	 */
 	public function show(Team $team)
 	{
-		return $team; 
+		return view('teams.show', ['team'=> $team]);
 	}
 
 	/**
@@ -115,7 +112,75 @@ class TeamController extends Controller {
 
 		$team->push();
 
-		return redirect()->route('team.edit', $team->slug); //If there were any coaches or players go to next form to give them numbers and positions 
+		//If there were any coaches or players go to next form to give them numbers and positions 
+		return redirect()->route('team.edit', $team->slug); 
+	}
+
+	/**
+	 * Show the update players numbers form for this team. 
+	 * 
+	 * @param Team $team 
+	 * @param Request $request 
+	 * @return Response
+	 */
+	public function editPlayersInfo(Team $team, Request $request)
+	{
+		return view('teams.editPlayersNumbers', ['team' => $team]);
+	}
+
+	/**
+	 * Update the players numbers for this team
+	 * 
+	 * @param Team $team 
+	 * @param Request $request 
+	 * @return Response
+	 */
+	public function updatePlayersInfo(Team $team, Request $request)
+	{
+		foreach($team->players->lists('id') as $player_id){
+			if($request->input($player_id)){
+				$team->players()->updateExistingPivot($player_id, ['number' => $request->input($player_id)]);
+			}
+		}
+		$team->push();
+
+		return redirect()->route('team.edit', $team->slug); 
+	}
+
+	/**
+	 * Show the update coach info form for this team. 
+	 * 
+	 * @param Team $team 
+	 * @param Request $request 
+	 * @return Response
+	 */
+	public function editCoachesInfo(Team $team, Request $request)
+	{
+		return view('teams.editCoachesInfo', ['team' => $team]);
+	}
+
+	/**
+	 * Update the coaches info for this team
+	 * 
+	 * @param Team $team 
+	 * @param Request $request 
+	 * @return Response
+	 */
+	public function updateCoachesInfo(Team $team, Request $request)
+	{
+		
+		foreach($team->coaches->lists('id') as $coach_id){
+			if($request->input("role-$coach_id")){
+				$team->coaches()->updateExistingPivot($coach_id, ['role' => $request->input("role-$coach_id")]);
+			}
+
+			if($request->input("number-$coach_id")){
+				$team->coaches()->updateExistingPivot($coach_id, ['number' => $request->input("number-$coach_id")]);
+			}
+		}
+		$team->push();
+
+		return redirect()->route('team.edit', $team->slug); 
 	}
 
 	/**
@@ -124,9 +189,10 @@ class TeamController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Team $team, Request $request)
+	public function destroy(Team $team)
 	{
-		return $team; 
+		$team->delete();
+		return redirect()->route('team.create'); 
 	}
 
 
@@ -137,13 +203,6 @@ class TeamController extends Controller {
 	 */
 	public function roster($age_group, $year = 2015)
 	{
-		// $bugs = Bug::all(); 
-		// return view('bugs.showAll', ['bugs'=> $bugs]); 
-		// return "year = $year" . "age group = $age_group"; 
-		// return var_dump($year, $age_group) . "year = $year " . "age group = $age_group"; 
-		// return dd($request, $year, $age_group); 
-
-		
 		return view("team.roster", ["age_group"=> $age_group, "roster"=> json_decode(Storage::get('json/roster.json'))]);
 	}
 

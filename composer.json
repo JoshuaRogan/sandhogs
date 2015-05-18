@@ -1,6 +1,6 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
+	"name": "East Coast Sandhogs",
+	"description": "East Coast Sandhogs (Affiliated with the San Francisco Giants) scouting baseball organization.",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"type": "project",

@@ -31,12 +31,10 @@ class Team extends Model {
 	 * @param type $query 
 	 * @return type $query
 	 */
-	public function scopeNewPlayers($query)
+	public function scopeNotVisible($query)
     {
-        return $query->where('visible', '=', true);
+        return $query->where('visible', '=', false);
     }
-
-
 
 
 	/**
@@ -58,16 +56,13 @@ class Team extends Model {
 	}
 
 
-
-    
-
 	/**
 	 *	Players of this team. 
 	 *
 	 */
 	public function players()
 	{
-		return $this->belongsToMany('App\Player');
+		return $this->belongsToMany('App\Player')->withPivot('number');
 	}
 
 	/**
@@ -76,7 +71,7 @@ class Team extends Model {
 	 */
 	public function coaches()
 	{
-		return $this->belongsToMany('App\Coach');
+		return $this->belongsToMany('App\Coach')->withPivot('number', 'role');
 	}
 
 	/**

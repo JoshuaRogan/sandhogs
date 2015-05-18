@@ -113,10 +113,9 @@
 			<div class="panel panel-primary">
 				<div id="create-new-coach" class="panel-heading"><strong>Add New Coach</strong></div>
 				<div class="panel-body">
-					
-				{!! Form::open(['route' => ['staff.store'], 'class' => 'form-horizontal']) !!}
+				{!! Form::model($coach = new App\Coach, ['route' => ['staff.store'], 'class' => 'form-horizontal']) !!}
 						@include('coaches.form', ['btn'=>'Coach Generator'])
-					{!! Form::close() !!}
+				{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

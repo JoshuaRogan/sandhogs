@@ -27,6 +27,10 @@
 			@foreach($teams as $team_display)
 				@include("dashboard.menu-item", ['url' => "/team/$team_display->slug/edit", 'title'=> "$team_display->name", 'icon'=> 'fa-users', 'columnSize' => 'col-sm-3', 'description'=> "$team_display->description"])
 			@endforeach
+
+			@foreach($hidden_teams as $team_display)
+				@include("dashboard.menu-item", ['url' => "/team/$team_display->slug/edit", 'title'=> "$team_display->name", 'icon'=> 'fa-users', 'columnSize' => 'col-sm-3', 'description'=> "$team_display->description", 'admin'=>true, 'approval'=>true])
+			@endforeach
 		</div>
 
 	</div>

@@ -28,8 +28,7 @@ class PlayerController extends Controller {
 	 */
 	public function index()
 	{
-		//
-		return Player::all(); 
+		return view('players.index', ['players'=>Player::all()]);
 	}
 
 	/**
@@ -54,6 +53,9 @@ class PlayerController extends Controller {
 		$player->fill($request->all());
 		$player->slug = $player->first . "-" . $player->last; 
 		$player->save();
+
+		$player->teams()->sync((array)$request->input('teams'));
+		$player->push(); 
 
 		return redirect()->route('player.create');
 	}
@@ -90,6 +92,9 @@ class PlayerController extends Controller {
 	{
 		$player->fill($request->all());
 		$player->save(); 
+
+		$player->teams()->sync((array)$request->input('teams'));
+		$player->push();
 
 		return redirect()->route('player.create');
 	}

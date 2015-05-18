@@ -1,11 +1,10 @@
-{{-- All of the events for the current year --}}
 @extends('skeleton.base')
 @extends('skeleton.default_header')
 @extends('skeleton.default_footer')
 
 @section('title', 'Events')
-@section('description', 'All of the East Coast Sandhogs events for this year')
-@section('pageclass', 'page-schedule')
+@section('description', 'Events for all of the East Coast Sandhogs baseball organization')
+@section('pageclass', 'page-events')
 
 @section('styles')
 	@parent
@@ -15,7 +14,6 @@
 	@parent
 	<script src="{{asset('/js/sortable.min.js')}}"></script>
 	<script src="{{asset('/js/schedule.js')}}"></script>
-
 @stop
 
 
@@ -23,9 +21,7 @@
 
 <div class="container">
 	<h2> All Events </h2>
-	<p> Listed below are all of the events for the East Coast Sandhogs. Click on a column to sort it.  </p>
-	<div> 
-		@include("events.eventTableJson")
-	</div>
+	<p> Listed below are all of the events for the East Coast Sandhogs. Click on a column to sort it. </p>
+	@include('events.eventTable')
 </div>
 @stop

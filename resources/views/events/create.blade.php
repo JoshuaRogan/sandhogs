@@ -96,7 +96,7 @@
 				<div id="create-new-event" class="panel-heading"><strong>Add New Event</strong></div>
 				<div class="panel-body">
 					
-				{!! Form::open(['route' => ['event.store'], 'class' => 'form-horizontal']) !!}
+				{!! Form::model($event = new App\Event, ['route' => ['event.store'], 'class' => 'form-horizontal']) !!}
 						@include('events.form')
 						{!! Form::submit("Create Event", ['class'=>'btn btn-primary pull-right']) !!}
 				{!! Form::close() !!}

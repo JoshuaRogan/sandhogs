@@ -31,17 +31,26 @@
 </div>
 
 <div class="form-group">
-	<label for="coaches" class="col-sm-2 control-label">Coaches</label>
+	<label for="coaches" class="col-sm-2 control-label">Coach Pool</label>
 	<div class="col-sm-10" id="coaches">
 		
 		<div>
 			<div> 
-				@foreach (App\Coach::all() as $coach)
+
+		       @foreach ($team->coaches as $coach)
 		        <label class="checkbox-inline">
-		           {!! Form::checkbox('coaches[]', $coach->id, false) !!} 
+		           <input checked name="coaches[]" type="checkbox" value="{{$coach->id}}">
 		           {{$coach->full_name}}
 		        </label>
 		        @endforeach
+
+		        @foreach (App\Coach::all()->diff($team->coaches) as $coach)
+		        <label class="checkbox-inline">
+		           <input name="coaches[]" type="checkbox" value="{{$coach->id}}">
+		           {{$coach->full_name}}
+		        </label>
+		        @endforeach
+		        
 		    </div>
 	    </div>
 		<a href="{{route('staff.create')}}" class="checkbox-inline"><i class="fa fa-plus-circle"></i> Add Coach</a></label>
@@ -49,10 +58,11 @@
 </div>
 
 <div class="form-group">
-	<label for="players" class="col-sm-2 control-label">Players</label>
+	<label for="players" class="col-sm-2 control-label">Player Pool</label>
 	<div class="col-sm-10" id="players">
 		<div>
 			<div> 
+
 				@foreach ($team->players as $player)
 		        <label class="checkbox-inline">
 		           <input checked name="players[]" type="checkbox" value="{{$player->id}}">
@@ -60,12 +70,13 @@
 		        </label>
 		        @endforeach
 
-		        @foreach (App\Player::all() as $player)
+		        @foreach (App\Player::all()->diff($team->players) as $player)
 		        <label class="checkbox-inline">
 		           <input name="players[]" type="checkbox" value="{{$player->id}}">
 		           {{$player->full_name}}
 		        </label>
 		        @endforeach
+
 		    </div>
 	    </div>
 		<a href="{{route('player.create')}}" class="checkbox-inline"><i class="fa fa-plus-circle"></i> Add Player</a></label>
@@ -73,14 +84,21 @@
 </div>
 
 <div class="form-group">
-	<label for="events" class="col-sm-2 control-label">Events</label>
+	<label for="events" class="col-sm-2 control-label">Event Pool</label>
 	<div class="col-sm-10" id="events">
 		
 		<div>
 			<div> 
-				@foreach (App\Event::all() as $event)
+				@foreach ($team->events as $event)
 		        <label class="checkbox-inline">
-		           {!! Form::checkbox('events[]', $event->id, false) !!} 
+		           <input checked name="events[]" type="checkbox" value="{{$event->id}}">
+		           {{$event->name}}
+		        </label>
+		        @endforeach
+
+		        @foreach (App\Event::all()->diff($team->events) as $event)
+		        <label class="checkbox-inline">
+		           <input name="events[]" type="checkbox" value="{{$event->id}}">
 		           {{$event->name}}
 		        </label>
 		        @endforeach

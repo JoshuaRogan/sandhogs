@@ -18,12 +18,16 @@ Route::bind('staff', function($slug)
 });
 Route::resource('staff', 'CoachController'); 
 
+
+
 //Player Resource 
 Route::bind('player', function($slug)
 {
 	return App\Player::whereSlug($slug)->first();
 });
 Route::resource('player', 'PlayerController'); 
+
+
 
 //Event Resource 
 Route::bind('event', function($slug)
@@ -32,13 +36,34 @@ Route::bind('event', function($slug)
 });
 Route::resource('event', 'EventController'); 
 
+
+
 //Team Resource 
 Route::bind('team', function($slug) 
 {
-	//!!!!WONT BE A SLUG 
 	return App\Team::whereSlug($slug)->first();
 });
 Route::resource('team', 'TeamController'); 
+
+Route::get('team/{team}/edit-players-info', [
+    'as' => 'team.editPlayersInfo', 'uses' => 'TeamController@editPlayersInfo'
+]);
+
+Route::patch('team/{team}/update-players-info', [
+    'as' => 'team.updatePlayersInfo', 'uses' => 'TeamController@updatePlayersInfo'
+]);
+
+Route::get('team/{team}/edit-coaches-info', [
+    'as' => 'team.editCoachesInfo', 'uses' => 'TeamController@editCoachesInfo'
+]);
+
+Route::patch('team/{team}/update-coaches-info', [
+    'as' => 'team.updateCoachesInfo', 'uses' => 'TeamController@updateCoachesInfo'
+]);
+
+
+
+
 
 
 

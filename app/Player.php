@@ -28,7 +28,7 @@ class Player extends Model {
      *	than one. 
      */
     public function teams(){
-    	return $this->belongsToMany('App\Team'); 
+    	return $this->belongsToMany('App\Team')->withPivot('number');
     }
 
 	/**

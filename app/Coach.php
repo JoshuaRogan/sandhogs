@@ -28,7 +28,7 @@ class Coach extends Model {
 	 * @return Team
 	 */
     public function teams(){
-    	return $this->belongsToMany('App\Team'); 
+    	return $this->belongsToMany('App\Team')->withPivot('number', 'role'); 
     }
 
     /**

@@ -22,7 +22,6 @@
 	<div class="col-md-8"> 
 		<h3> East Coast Sandhogs {{$age_group}} Roster </h3>
 		{{-- <p> Click any player to see more information </p> --}}
-	
 
 	  	<div class="panel-group" id="players" role="tablist" aria-multiselectable="true">
 			@foreach ($roster as $player)
@@ -47,7 +46,7 @@
 
 
 
-	<div class="col-md-4" id="events"> 
+	<div class="col-md-4" id="coaches"> 
 		<h2> All Coaches </h2>
 		<div class="contact-box">
 			<address class="hidden"> 
