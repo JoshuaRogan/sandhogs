@@ -65,8 +65,8 @@
 
 		<h3><i class="fa fa-pencil"></i> Edit Current Staff </h3>
 		<p class="lead"> Click any coach to view their profile. Click the <i class="fa fa-pencil"></i> icon to edit or click the <i class="fa fa-trash"></i> to delete the coach from the Sandhogs organization. </p>
-		<div id="current-roster"> 
-			<table class='roster table table-striped'>
+		<div id="current-staff" class='scroll-section'> 
+			<table class='staff table table-striped'>
 			  <thead>
 			    <tr>
 			      <th>Coach</th>

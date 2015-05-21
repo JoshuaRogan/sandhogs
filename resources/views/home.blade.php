@@ -3,18 +3,15 @@
 @extends('skeleton.default_footer')
 
 @section('title', 'Home')
-@section('description', 'Description of the home page')
+@section('description', 'Northeast Pride Baseball and the new East Coast Sandhogs Baseball Organization (formerly players and coaches of the Moosic Mets) are proud to announce their partnership agreement effective for the 2015 season and beyond. Along with this collaboration, both organizations are very excited to be the representative of Major League Baseball’s San Francisco Giants with the development of the San Francisco Giants East Coast Scout Team.')
 @section('pageclass', 'page-home')
 
 @section('styles')
-	<link rel="stylesheet" type="text/css" href="{{asset('/styles/slippry.css')}}">
 	@parent
 @stop
 
 @section('lazyscripts')
 	@parent
-	<script src="{{asset('/js/slippry.min.js')}}"></script>
-	<script src="{{asset('/js/home.js')}}"></script>
 @stop
 
 
@@ -28,18 +25,19 @@
 
 	<div id="upcomingEvents" class="col-xs-12 col-md-5"> 
 		<h2> Upcoming Events </h2>
+
 		{{-- <div class="alert alert-warning text-center row" role="alert">
 			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
 			<div class="col-xs-8 simple-padding-3"> <strong>There are no active events for the Sandhogs!</strong></div>
 		</div> --}}
 		<ul  class="list-unstyled events">
-			@include('events.homeEvent', ['name' => 'NYEB All American', 'type' => 'Tourney', 'date' => 'August 1-2, 2015', 'location'=> 'Newburgh, NY', 'locationId' => 'Newburgh,NY', 'team'=>'10u & 13u', 'day'=> '1'])
-			@include('events.homeEvent', ['name' => 'August Strikeout', 'type' => 'Tourney', 'date' => 'August 14-16, 2015', 'location'=> 'Diamond Nation', 'locationId' => 'Flemington,NJ/DiamondNation', 'team'=>'17U Prospect', 'day'=> '14'])
-			@include('events.homeEvent', ['name' => 'All American Tourney', 'type' => 'Tourney', 'date' => 'August 14-16, 2015', 'location'=> 'Maple Zone Sports Complex', 'locationId' => 'Garnet Valley, PA/Maple Zone Sports Complex', 'team'=>'15-16U', 'day'=> '14'])
+			@foreach(App\Event::upcoming(6)->get() as $event)
+				@include('events.homeEvent')
+			@endforeach
 		</ul>
 
 		<div class="col-xs-12"> 
-			<a class="btn btn-info btn-lg btn-block" href="/schedule" role="button" id="allEvents">All Events</a>
+			<a class="btn btn-info btn-lg btn-block" href="{{route('event.index')}}" role="button" id="allEvents">All Events</a>
 		</div>
 	</div>
 
@@ -57,10 +55,23 @@
 			<p> "Northeast Pride Baseball is very excited for the opportunity to be working with such a storied MLB franchise in the San Francisco Giants. The ability to bring national attention and exposure to all the players in our region is a great honor. We look forward to working with Paul McGloin and the rest of the East Coast Sandhogs baseball family on creating a great brand of baseball here in our area."</p>
 			<footer><cite title="Joe Curreri">Joe Curreri of the Northeast Pride</cite></footer>
 		</blockquote>
+		<p><a href="/files/press_release.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> Press Release</a></p>
 
+		<div id="social-media" class="col-xs-12 clearfix"> 
+			<div class="center-block"> 
+				<h2 class='font-facebook-blue'> <i class="fa fa-facebook-official"></i> Feed </h2>
+				<div class="embed-responsive embed-responsive-16by9 center-block text-center ">
+					<div class="fb-page" data-width='500' data-height='800' data-href="https://www.facebook.com/sandhogs?fref=ts" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/sandhogs?fref=ts"><a href="https://www.facebook.com/sandhogs?fref=ts">East Coast Sandhogs</a></blockquote></div></div>
+				</div>
+			</div>
+		</div>
 
-	  <p><a href="/files/press_release.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> Press Release</a></p>
+	  
 	</div>
+
+
+
+
 
 
 	<section id="doforyou" class="col-xs-12"> 

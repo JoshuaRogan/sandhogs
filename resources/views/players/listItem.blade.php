@@ -2,7 +2,7 @@
 <div class="panel-heading" role="tab" id="heading-{{ $player->id }}">
   <h4 class="panel-title">
     <a data-toggle="collapse" href="#collapsed-{{ $player->id }}" aria-expanded="true" aria-controls="collapsed-{{ $player->id }}">
-      {{ $player->full_name }} <span class="pull-right">#1 </span>
+      {{ $player->full_name }} <span class="pull-right">#{{$player->pivot->number or ''}}</span>
     </a>
   </h4>
 </div>

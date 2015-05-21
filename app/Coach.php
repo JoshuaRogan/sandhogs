@@ -40,6 +40,20 @@ class Coach extends Model {
     	return "$this->first $this->last"; 
     }
 
+    
+    /**
+     * Return a list of links to the teams that this coach is coaching 
+     * 
+     * @return type
+     */
+    public function getTeamsCoachingLinksAttribute(){
+    	$string = ""; 
+    	foreach($this->teams as $team){
+    		$string .= "<a href='" . route('team.show', $team->slug) . "'> $team->name </a>";  
+    	}
+    	return $string; 
+    }
+
     /**
      * Make sure the slug attribute is unique whenever it is 
      * updated. CHECK IT AGAINST ITSELF!!
@@ -49,7 +63,7 @@ class Coach extends Model {
      * 
      */
     public function setSlugAttribute($value){
-    	$base_slug = urlencode(strtolower($value)); 
+    	$base_slug = str_slug(strtolower($value), "-"); 
     	$value = $base_slug; 
 		
 		$i = 1; //Generate a unique slug

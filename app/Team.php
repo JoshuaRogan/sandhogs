@@ -44,7 +44,7 @@ class Team extends Model {
      * @return type
      */
     public function setSlugAttribute($value){
-    	$base_slug = urlencode(strtolower(str_ireplace(" ", "-", $value))); 
+    	$base_slug = str_slug(strtolower(str_ireplace(" ", "-", $value)), '-'); 
     	$value = $base_slug; 
 		
 		$i = 1; //Generate a unique slug
@@ -55,6 +55,16 @@ class Team extends Model {
 		$this->attributes['slug'] = $value; 
 	}
 
+	/**
+	 * Return an all upcase Name
+	 * 
+	 * @param String $value 
+	 * @return String
+	 */
+	public function getNameAttribute($value){
+		return strtoupper($value); 
+	}
+
 
 	/**
 	 *	Players of this team. 
@@ -62,7 +72,7 @@ class Team extends Model {
 	 */
 	public function players()
 	{
-		return $this->belongsToMany('App\Player')->withPivot('number');
+		return $this->belongsToMany('App\Player')->withPivot('number')->orderBy('last');
 	}
 
 	/**
@@ -71,7 +81,7 @@ class Team extends Model {
 	 */
 	public function coaches()
 	{
-		return $this->belongsToMany('App\Coach')->withPivot('number', 'role');
+		return $this->belongsToMany('App\Coach')->withPivot('number', 'role')->orderBy('last');
 	}
 
 	/**
@@ -80,7 +90,7 @@ class Team extends Model {
 	 */
 	public function events()
 	{
-		return $this->belongsToMany('App\Event');
+		return $this->belongsToMany('App\Event')->orderBy('start_date');;
 	}
 
 

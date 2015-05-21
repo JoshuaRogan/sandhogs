@@ -46,7 +46,7 @@ class Player extends Model {
      *
      */
     public function setSlugAttribute($value){
-    	$base_slug = urlencode(strtolower($value)); 
+    	$base_slug = str_slug(strtolower($value), "-"); 
     	$value = $base_slug; 
 		
 		$i = 1; //Generate a unique slug

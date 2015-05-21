@@ -12,7 +12,9 @@ class CoachController extends Controller {
 	private $coach; 
 
 
-	public function __construct(Coach $coach){
+	public function __construct(Coach $coach)
+	{
+		parent::__construct();
 		$this->middleware('auth', ['except' => ['index', 'show']]);
 
 		$this->coach = $coach;
@@ -35,7 +37,8 @@ class CoachController extends Controller {
 	 * @return Response
 	 */
 	public function create()
-	{
+	{	
+		
 		$coaches = Coach::all(); 
 		return view('coaches.create', compact('coaches'));
 	}
@@ -68,7 +71,8 @@ class CoachController extends Controller {
 		// $coach = Coach::whereSlug($slug)->first(); 
 		// dd($coach);
 		// return 'show'; 
-		return $coach;
+		// return $coach;
+		return view('coaches.show', compact('coach')); 
 	}
 
 	/**

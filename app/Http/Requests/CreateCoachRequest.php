@@ -23,8 +23,7 @@ class CreateCoachRequest extends Request {
 	{
 		return [
 			'first' => 'required|min:2',
-			'last' => 'required|min:2',
-			'email' => 'required'
+			'last' => 'required|min:2'
 		];
 	}
 

@@ -53,7 +53,7 @@
 			        </label>
 			        @endforeach
 
-			        @foreach (App\Team::all()->diff($player->teams) as $team)
+			        @foreach (App\Team::all()->diff($player->teams)->sortBy('name') as $team)
 			        <label class="checkbox-inline">
 			           <input name="teams[]" type="checkbox" value="{{$team->id}}">
 			           {{$team->name}}

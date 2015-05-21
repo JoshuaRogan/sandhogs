@@ -7,14 +7,11 @@
 @section('pageclass', 'page-roster')
 
 @section('styles')
-	<link rel="stylesheet" type="text/css" href="{{asset('/styles/slippry.css')}}">
 	@parent
 @stop
 
 @section('lazyscripts')
 	@parent
-	<script src="{{asset('/js/slippry.min.js')}}"></script>
-	<script src="{{asset('/js/roster.js')}}"></script>
 @stop
 
 @section('content')

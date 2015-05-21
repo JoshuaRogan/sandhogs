@@ -7,14 +7,11 @@
 @section('pageclass', 'page-staff')
 
 @section('styles')
-	<link rel="stylesheet" type="text/css" href="{{asset('/styles/slippry.css')}}">
 	@parent
 @stop
 
 @section('lazyscripts')
 	@parent
-	<script src="{{asset('/js/slippry.min.js')}}"></script>
-	<script src="{{asset('/js/home.js')}}"></script>
 @stop
 
 
@@ -59,7 +56,7 @@
 			</div>
 		</section>
 
-		<section class="row"> 
+		<section class="row hidden"> 
 			<h3> Joe Curreri <small> Scout Team Co-General Manager<em>2015-Present</em></small> </h3>
 
 			<div class="col-md-4 col-xs-12 col-md-push-8"> 

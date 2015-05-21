@@ -12,8 +12,10 @@ return array(
     $vendorDir . '/ircmaxell/password-compat/lib/password.php',
     $vendorDir . '/psy/psysh/src/Psy/functions.php',
     $vendorDir . '/danielstjules/stringy/src/Create.php',
+    $vendorDir . '/guzzlehttp/streams/src/functions.php',
     $vendorDir . '/illuminate/html/helpers.php',
     $vendorDir . '/laracasts/testdummy/src/functions.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
+    $vendorDir . '/guzzlehttp/guzzle/src/functions.php',
 );

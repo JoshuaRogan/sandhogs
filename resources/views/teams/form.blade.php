@@ -44,7 +44,7 @@
 		        </label>
 		        @endforeach
 
-		        @foreach (App\Coach::all()->diff($team->coaches) as $coach)
+		        @foreach (App\Coach::all()->diff($team->coaches)->sortBy('last') as $coach)
 		        <label class="checkbox-inline">
 		           <input name="coaches[]" type="checkbox" value="{{$coach->id}}">
 		           {{$coach->full_name}}
@@ -70,7 +70,7 @@
 		        </label>
 		        @endforeach
 
-		        @foreach (App\Player::all()->diff($team->players) as $player)
+		        @foreach (App\Player::all()->diff($team->players)->sortBy('last') as $player)
 		        <label class="checkbox-inline">
 		           <input name="players[]" type="checkbox" value="{{$player->id}}">
 		           {{$player->full_name}}
@@ -96,7 +96,7 @@
 		        </label>
 		        @endforeach
 
-		        @foreach (App\Event::all()->diff($team->events) as $event)
+		        @foreach (App\Event::all()->diff($team->events)->sortBy('name') as $event)
 		        <label class="checkbox-inline">
 		           <input name="events[]" type="checkbox" value="{{$event->id}}">
 		           {{$event->name}}

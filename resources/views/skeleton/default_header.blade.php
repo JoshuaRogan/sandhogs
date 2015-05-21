@@ -17,19 +17,16 @@
           <ul class="nav navbar-nav">
             <li><a href="/home">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/event">Schedule</a></li>
 
             <li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teams<span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
-          <li><a href="/roster/9U">9U</a></li>
-          <li><a href="/roster/10U">10U</a></li>
-          <li><a href="/roster/12U">12U</a></li>
-          <li><a href="/roster/13U">13U</a></li>
-          <li><a href="/roster/14U">14U</a></li>
-          <li><a href="/roster/16U">15/16U</a></li>
-          <li><a href="/roster/17UP">17U Prospect</a></li>
-          <li><a href="/roster/17UE">17U Elite</a></li>
+          @foreach(App\Team::all()->sortBy('name') as $team)
+            <li><a href="{{route('team.show', [$team->slug])}}">{{$team->name}}</a></li>
+          @endforeach
+          <li class="divider"></li>
+           <li><a href="{{route('team.index')}}">All Teams</a></li>
 				</ul>
         </li>          
           </ul>

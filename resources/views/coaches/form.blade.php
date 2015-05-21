@@ -10,7 +10,7 @@
 	</div>
 
 
-	<div class="form-group {{ $errors->has('first') ? 'has-error' : '' }}"> 
+	<div class="form-group {{ $errors->has('last') ? 'has-error' : '' }}"> 
 		{!! Form::label('last', 'Last Name*', ['class' => 'col-sm-2 control-label']) !!}
 		<div class="col-sm-10">
 			{!! Form::text('last', null, ['class' => 'form-control', 'placeholder' => 'e.g. Doe', 'required'=>'required']) !!}
@@ -19,10 +19,10 @@
 	</div>
 
 
-	<div class="form-group {{ $errors->has('first') ? 'has-error' : '' }}"> 
+	<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}"> 
 		{!! Form::label('email', 'Email*', ['class' => 'col-sm-2 control-label']) !!}
 		<div class="col-sm-10">
-			{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'e.g. JohnDoe@gmail.com', 'required'=>'required']) !!}
+			{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'e.g. JohnDoe@gmail.com']) !!}
 			{!! $errors->first('email', '<span class="help-block">:message</span>')!!}
 		</div>
 	</div>

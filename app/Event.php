@@ -8,12 +8,12 @@ class Event extends Model {
 
 	//Soft deleting 
 	use SoftDeletes;
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'start_date', 'end_date'];
 
     protected $table = 'events';
 
     protected $fillable = [
-		'name', 'slug', 'description', 'results', 'location', 'start_date', 'end_date' 
+		'name', 'slug', 'description', 'results', 'location', 'start_date', 'end_date', 'detailed_location'
 	];
 
     /**
@@ -25,6 +25,16 @@ class Event extends Model {
     	return $this->belongsToMany('App\Team'); 
     }
 
+    /**
+     * Return the five upcoming events
+     * 
+     * @param type $query 
+     * @return Query
+     */
+    public function scopeUpcoming($query, $limit = 5){
+        return $query->where('start_date', '>=', new Carbon('today'))->orderBy('start_date', 'asc')->take($limit);
+    }
+
 
     /**
      * Return a formmated string that the View form can handle
@@ -32,10 +42,10 @@ class Event extends Model {
      * @param String $date 
      * @return String
      */
-    public function getStartDateAttribute($date)
+    public function getStartDateStringAttribute()
     {
-
-        return (new Carbon($date))->toDateString();
+        if($this->start_date) return $this->start_date->toDateString();
+        
     } 
 
     /**
@@ -44,11 +54,19 @@ class Event extends Model {
      * @param String $date 
      * @return String
      */
-    public function getEndDateAttribute($date)
+    public function getEndDateStringAttribute()
     {
-        return (new Carbon($date))->toDateString();
+        if($this->end_date) return $this->end_date->toDateString();
     } 
 
+    /**
+     * Return the location properly formatted for a google maps URL
+     * 
+     * @return String
+     */
+    public function getGoogleMapsLocationAttribute(){
+        return str_replace(' ', '+', $this->location);
+    }
 
 
     /**
@@ -58,7 +76,7 @@ class Event extends Model {
      * @return type
      */
     public function setSlugAttribute($value){
-    	$base_slug = urlencode(strtolower(str_ireplace(" ", "-", $value))); 
+    	$base_slug = str_slug(strtolower(str_ireplace(" ", "-", $value)), "-"); 
     	$value = $base_slug; 
 		
 		$i = 1; //Generate a unique slug

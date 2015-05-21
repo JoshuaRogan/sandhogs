@@ -12,14 +12,16 @@
 
 @section('lazyscripts')
 	@parent
-	<script src="{{asset('/js/sortable.min.js')}}"></script>
-	<script src="{{asset('/js/schedule.js')}}"></script>
 @stop
 
 
 @section('content')
 
 <div class="container">
+	<h2> Upcming Events </h2>
+	<p> Listed below are the most recent upcoming events. </p>
+	@include('events.eventTable', ['events'=> App\Event::upcoming(10)->get()])
+
 	<h2> All Events </h2>
 	<p> Listed below are all of the events for the East Coast Sandhogs. Click on a column to sort it. </p>
 	@include('events.eventTable')

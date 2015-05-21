@@ -14,16 +14,16 @@
 		</tr>
 	</thead>
 	<tbody>
-	@foreach($events as $event)
+	@foreach($events->sortBy('start_date') as $event)
 		<tr>			
 			
 			{{-- Create event page  --}}
 			{{-- <td><a href="{{ route('event.show', [$event->slug] )}} ">{{$event->name }}</a> </td> --}}
-			<td> {{$event->name}} </td>
+			<td> <a href="{{route('event.show', [$event->slug] )}}">{{$event->name}}</a></td>
 
 			<td><a href="https://www.google.com/maps/place/{!!str_replace(' ', '', $event->location)!!}" target="_blank"><i class="fa fa-map-marker"></i> {{ $event->location }}</a></td>
-			<td @if(isset($dashboard)) class="hidden-xs" @endif>{{$event->start_date }}</td>
-			<td @if(isset($dashboard)) class="hidden-xs" @endif>{{$event->end_date }}</td>
+			<td @if(isset($dashboard)) class="hidden-xs" @endif>{{$event->start_date->toFormattedDateString() }}</td>
+			<td @if(isset($dashboard)) class="hidden-xs" @endif>{{$event->end_date->toFormattedDateString() }}</td>
 			<td>
 				@foreach($event->teams as $team)
 					{{$team->name}}

@@ -62,6 +62,17 @@ Route::patch('team/{team}/update-coaches-info', [
 ]);
 
 
+//Contact Us Page routes 
+Route::get('contact', [
+    'as' => 'contact.index', 'uses' => 'ContactUsController@index'
+]);
+Route::post('contact', [
+    'as' => 'contact.send', 'uses' => 'ContactUsController@send'
+]);
+
+
+
+
 
 
 
@@ -72,15 +83,15 @@ Route::patch('team/{team}/update-coaches-info', [
 Route::get('/', 'RootController@index');
 Route::get('home', 'RootController@index');
 Route::get('splash', 'RootController@soon');
-Route::get('contact', 'RootController@soon');
+
 Route::get('about', 'RootController@about');
 Route::get('store', 'RootController@soon');
-Route::get('coaches', 'RootController@coaches');
+Route::get('coaches', ['as'=> 'mcgloin.info', 'uses'=>'RootController@coaches']);
+
 
 // Temporary roster controller 
-Route::get('roster/{age_group}', 'TeamController@roster'); //Change this to a redirect to current year 
-Route::get('roster/{age_group}/{year}', 'TeamController@roster');
-Route::get('schedule', 'EventController@schedule');
+Route::get('roster/{age_group}', 'TeamController@index'); //Change this to a redirect to current year 
+Route::get('schedule', 'EventController@index');
 
 
 

@@ -12,7 +12,6 @@
 
 @section('lazyscripts')
 	@parent
-	<script src="{{asset('/js/roster.js')}}"></script>
 @stop
 
 
@@ -27,6 +26,11 @@
 		@foreach($team->players as $player)
 			@include('players.listItem', ['player' => $player]) 
 		@endforeach
+
+		@if($team->name == "SCOUT TEAM") 
+			<h3 class='font-red'> Roster will be announced July 1, 2015 </h3>
+		@endif
+		
 		</div>
 	</div>
 
@@ -39,6 +43,37 @@
 				<p>{{$coach->description or ''}}</p>
 			</div>
 		@endforeach
+
+
+		<h3>Upcoming Events</h3>
+		<ul class="list-unstyled"> 
+		@foreach($team->events as $event)
+			<li> <a href="{{ route('event.show', [$event->slug] )}} "> {{$event->name}} </a> </li>
+		@endforeach
+		</ul>
+
+		<h3> Media </h3>
+		<div class="alert alert-warning text-center row" role="alert">
+			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
+			<div class="col-xs-8 simple-padding-3"> <strong>There is no media associated with this team yet! </strong></div>
+		</div>
+
+		<h2> Updates </h2>
+		{{-- <div class="alert alert-warning text-center row" role="alert">
+			<div class="col-xs-4"><i class="fa fa-exclamation-circle fa-5x font-orange"></i></div>
+			<div class="col-xs-8 simple-padding-3"> <strong>There are no updates associated with this team yet! </strong></div>
+		</div> --}}
+
+		<div class="social-media facebook-page" class="col-xs-12 clearfix"> 
+			<div class="center-block"> 
+				<div class="embed-responsive embed-responsive-16by9 center-block text-center ">
+					<div class="fb-page" data-width='500' data-height='1000' data-href="https://www.facebook.com/sandhogs?fref=ts" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/sandhogs?fref=ts"><a href="https://www.facebook.com/sandhogs?fref=ts">East Coast Sandhogs</a></blockquote></div></div>
+				</div>
+			</div>
+		</div>
+
+
+
 	</div>
 </div>
 @stop

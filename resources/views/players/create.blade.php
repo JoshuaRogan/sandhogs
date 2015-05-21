@@ -63,7 +63,7 @@
 
 		<h3><i class="fa fa-pencil"></i> Edit Current All Players </h3>
 		<p class="lead"> Click any player to view their profile. Click the <i class="fa fa-pencil"></i> icon to edit or click the <i class="fa fa-trash"></i> to delete the player from the Sandhogs organization. </p>
-		<div id="current-roster"> 
+		<div id="current-roster" class='scroll-section'> 
 			<table class='roster table table-striped'>
 			  <thead>
 			    <tr>
@@ -73,7 +73,7 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  @foreach($players as $player)
+			  @foreach($players->sortBy('last') as $player)
 				<tr>
 					<td> <a href="{{ route('player.show', [$player->slug] )}} ">{{$player->first}} {{$player->last}}</a> </td>
 					{{-- <td> 9U (Head Coach), 10U (Assitant Coach), 13U (Assitant Coach) </td> --}}

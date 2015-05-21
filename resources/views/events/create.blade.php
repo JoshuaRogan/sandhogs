@@ -52,8 +52,8 @@
 
 		<h3><i class="fa fa-pencil"></i> Edit Current Events </h3>
 		<p class="lead"> Click any event to view their public information. Click the <i class="fa fa-pencil"></i> icon to edit or click the <i class="fa fa-trash"></i> to delete the event from the Sandhogs schedule. </p>
-		<div id="current-roster"> 
-			<table class='roster table table-striped'>
+		<div id="current-events" class='scroll-section'> 
+			<table class='events table table-striped' >
 			  <thead>
 			    <tr>
 			      <th>Event</th>
@@ -65,7 +65,8 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  @foreach($events as $event)
+			  @foreach($events->sortBy('name') as $event)
+
 				<tr>
 					<td> <a href="{{ route('event.show', [$event->slug] )}} ">{{$event->name}}</a> </td>
 					<td> 

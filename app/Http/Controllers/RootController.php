@@ -51,8 +51,7 @@ class RootController extends Controller {
 	 */
 	public function contact()
 	{
-		return view('coming-soon'); 
-		// return view('contact'); 
+		return view('contact'); 
 	}
 
 	/**

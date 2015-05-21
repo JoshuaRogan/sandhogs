@@ -12,8 +12,6 @@
 
 @section('lazyscripts')
 	@parent
-	<script src="{{asset('/js/sortable.min.js')}}"></script>
-	<script src="{{asset('/js/schedule.js')}}"></script>
 @stop
 
 

@@ -43,6 +43,9 @@ class Authenticate {
 				return redirect()->guest('auth/login');
 			}
 		}
+		else if($this->auth->user()->role === 'basic'){
+			return response('You must be a coach or admin to access this page.', 401);
+		}
 
 		return $next($request);
 	}

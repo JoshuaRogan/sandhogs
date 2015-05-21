@@ -2,8 +2,7 @@
 <table class='table table-striped' data-sortable>
   <thead>
     <tr>
-      <th>First</th>
-      <th>Last</th>
+      <th>Name</th>
       <th>Team(s)</th>
       @if(isset($dashboard))
      	 <th>Number</th>
@@ -14,10 +13,9 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($coaches as $coach)
+  @foreach($coaches->sortBy('last') as $coach)
 	<tr>
-		<td> {{$coach->first}} </td>
-		<td> {{$coach->last}} </td>
+		<td> {{$coach->full_name}} </td>
 		<td>
 			@foreach($coach->teams as $team)
 				{{$team->name}}
