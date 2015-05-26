@@ -26,7 +26,7 @@
             <li><a href="{{route('team.show', [$team->slug])}}">{{$team->name}}</a></li>
           @endforeach
           <li class="divider"></li>
-           <li><a href="{{route('team.index')}}">All Teams</a></li>
+           <li><a href="{{route('team.index')}}">All Teams</a> </li>
 				</ul>
         </li>          
           </ul>
