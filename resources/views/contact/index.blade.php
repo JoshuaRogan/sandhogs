@@ -84,7 +84,7 @@
 					</div>
 				</address>
 
-				<address> 
+				<address class='hidden'> 
 					<h3>Joe Curreri</h3>
 					<div>
 						<div><a href="mailto:nepridebaseball@gmail.com"><i class="fa fa-envelope"></i> Email Me</a></div>
