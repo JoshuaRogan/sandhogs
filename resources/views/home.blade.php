@@ -31,7 +31,7 @@
 			<div class="col-xs-8 simple-padding-3"> <strong>There are no active events for the Sandhogs!</strong></div>
 		</div> --}}
 		<ul  class="list-unstyled events">
-			@foreach(App\Event::upcoming(6)->get() as $event)
+			@foreach(App\Event::upcoming(4)->get() as $event)
 				@include('events.homeEvent')
 			@endforeach
 		</ul>
