@@ -40,9 +40,9 @@
 		<div class="row"> 
 			<ul class="list-unstyled list-inline text-center col-xs-12"> 
 					<li> <a href="https://www.facebook.com/sandhogs?fref=ts" target="_blank"><i class="fa fa-facebook fa-lg" ></i></a> </li>
-	{{-- 				<li> <a href="#" target="_blank"><i class="fa fa-twitter fa-lg" ></i></a> </li>
-					<li> <a href="#" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a> </li>
-					<li> <a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a> </li> --}}
+					<li> <a href="https://twitter.com/ecsandhogs" target="_blank"><i class="fa fa-twitter fa-lg" ></i></a> </li>
+					{{-- <li> <a href="#" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a> </li> --}}
+					{{-- <li> <a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a> </li> --}}
 			</ul>
 
 			<ul id="site-map" class="list-inline text-center col-xs-12">
