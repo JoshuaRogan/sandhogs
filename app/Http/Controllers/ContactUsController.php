@@ -38,6 +38,7 @@ class ContactUsController extends Controller {
 	 */
 	public function send(SendContactUsEmailRequest $request)
 	{
+
 		\Mail::send('emails.contact-us', [
 				'reciever' => 'Joshua', 
 				'player' => $request->input('name'), 
@@ -50,6 +51,22 @@ class ContactUsController extends Controller {
 			{
 			    $message->to('jjjr1122@gmail.com', 'Contact Us - Sandhogs Baseball')
 			    	->subject('Contact Us Form')
+			    	->from('webmaster@sandhogsbaseball.com');
+			}
+		);
+
+		\Mail::send('emails.contact-us', [
+				'reciever' => 'Coach McGloin', 
+				'player' => $request->input('name'), 
+				'subject'=> $request->input('subject'), 
+				'message_body'=> $request->input('message'), 
+				'email'=> $request->input('email')
+			], 
+
+			function($message)
+			{
+			    $message->to('mcgloin@electriccitybaseball.com', 'Contact Us - Sandhogs Baseball')
+			    	->subject('East Coast Sandhogs - Contact Us Email')
 			    	->from('webmaster@sandhogsbaseball.com');
 			}
 		);
