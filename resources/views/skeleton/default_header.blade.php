@@ -22,9 +22,16 @@
             <li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teams<span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
-          @foreach(App\Team::all()->sortBy('name') as $team)
-            <li><a href="{{route('team.show', [$team->slug])}}">{{$team->name}}</a></li>
-          @endforeach
+            <li><a href="/team/9u-2015">9U</a></li>
+            <li><a href="/team/10u-2015">10U</a></li>
+            <li><a href="/team/11u-2015">11U</a></li>
+            <li><a href="/team/12u-2015">12U</a></li>
+            <li><a href="/team/13u-2015">13U</a></li>
+            <li><a href="/team/14u-2015">14U</a></li>
+            <li><a href="/team/1516u-2015">15/16U</a></li>
+            <li><a href="/team/17up-2015">17UP</a></li>
+            <li><a href="/team/17ue-2015">17UE</a></li>
+            <li><a href="/team/scout-team-2015">Scout Team</a></li>
           <li class="divider"></li>
            <li><a href="{{route('team.index')}}">All Teams</a> </li>
 				</ul>

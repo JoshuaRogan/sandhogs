@@ -64,12 +64,19 @@
 			<div class="col-xs-8 simple-padding-3"> <strong>There are no updates associated with this team yet! </strong></div>
 		</div> --}}
 
-		<div class="social-media facebook-page" class="col-xs-12 clearfix"> 
+		<div class="social-media facebook-page col-xs-12 clearfix"> 
+		<h2 class='font-facebook-blue'> <i class="fa fa-facebook-official"></i> Feed </h2>
 			<div class="center-block"> 
 				<div class="embed-responsive embed-responsive-16by9 center-block text-center ">
 					<div class="fb-page" data-width='500' data-height='1000' data-href="https://www.facebook.com/sandhogs?fref=ts" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/sandhogs?fref=ts"><a href="https://www.facebook.com/sandhogs?fref=ts">East Coast Sandhogs</a></blockquote></div></div>
 				</div>
 			</div>
+		</div>
+
+		<div class="social-media twitter-page col-xs-12 clearfix">
+		<h2 class='font-twitter-blue'><i class='fa fa-twitter'></i> Feed</h2>
+			<a class="twitter-timeline" href="https://twitter.com/ECSandhogs" data-widget-id="604142773655191552">Tweets by @ECSandhogs</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</div>
 
 

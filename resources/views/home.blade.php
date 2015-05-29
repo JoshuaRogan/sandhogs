@@ -57,14 +57,29 @@
 		</blockquote>
 		<p><a href="/files/press_release.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> Press Release</a></p>
 
-		<div id="social-media" class="col-xs-12 clearfix"> 
-			<div class="center-block"> 
+	
+	</div>
+
+	<div id='social-media'> 
+
+		<div class="col-xs-12 clearfix"> 
+			<div class="col-md-6"> 
 				<h2 class='font-facebook-blue'> <i class="fa fa-facebook-official"></i> Feed </h2>
 				<div class="embed-responsive embed-responsive-16by9 center-block text-center ">
 					<div class="fb-page" data-width='500' data-height='800' data-href="https://www.facebook.com/sandhogs?fref=ts" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/sandhogs?fref=ts"><a href="https://www.facebook.com/sandhogs?fref=ts">East Coast Sandhogs</a></blockquote></div></div>
 				</div>
 			</div>
-		</div>
+
+			<div class="col-md-6"> 
+			<h2 class='font-twitter-blue'><i class='fa fa-twitter'></i> Feed</h2>
+			<a class="twitter-timeline" href="https://twitter.com/ECSandhogs" data-widget-id="604142773655191552"></a>
+			<script>
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+			</script>
+
+		</div> 
+
+	</div> 
 
 	  
 	</div>
