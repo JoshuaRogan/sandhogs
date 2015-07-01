@@ -14,7 +14,14 @@
 		"phpunit/phpunit": "~4.0",
 		"phpspec/phpspec": "~2.1",
 		"laracasts/generators": "~1.1",
-		"laracasts/testdummy": "~2.3"
+		"laracasts/testdummy": "~2.3",
+		"grunt": "~0.4.2",
+	    "grunt-contrib-less": "~1.0.0",
+	    "grunt-contrib-watch": "~0.6.1",
+	    "grunt-contrib-uglify": "~0.9.1",
+	    "grunt-contrib-concat": "~0.5.1",
+	    "grunt-contrib-cssmin": "~0.12.3", 
+	    "grunt-autoprefixer": "~3.0.1"
 	},
 	"autoload": {
 		"classmap": [

@@ -9204,6 +9204,9 @@ return jQuery;
 
 }));
 ;
+$(document).ready(function(){
+	
+});;
 /*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -11370,17 +11373,31 @@ window.fbAsyncInit = function() {
  }(document, 'script', 'facebook-jssdk'));
 
 ;
-var sandhogs = sandhogs || {debug: true};
+$(document).ready(function(){
+	
+});;
+var sandhogs = sandhogs || {
+    debug: true
+};
 sandhogs.config = sandhogs.config || {};
 sandhogs.htmlutil = sandhogs.htmlutil || {};
+$(document).ready(function() {
+	sandhogs.htmlutil.default_slider('.slider-default');
+});
 
-$(document).ready(function(){
-	$('#banner-slider').slippry({
-		transition: 'horizontal', // fade, horizontal, kenburns, false
-		adaptiveHeight: false
 
-	}); 
-});;
+/**
+ * Activate the default slippry slider
+ *
+ */
+sandhogs.htmlutil.default_slider = function(selector) {
+    if ($(selector)) {
+        $(selector).slippry({
+            transition: 'horizontal', // fade, horizontal, kenburns, false
+            adaptiveHeight: true
+        });
+    }
+};
 var sandhogs = sandhogs || {debug: true};
 sandhogs.config = sandhogs.config || {};
 sandhogs.htmlutil = sandhogs.htmlutil || {};

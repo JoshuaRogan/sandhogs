@@ -87,7 +87,6 @@ class InitialDataSeeder extends Seeder {
 				]);
         	}
 
-
         	$new_event = Event::create([
         		'name' => $event->Event, 
         		'slug' => $event->Event,

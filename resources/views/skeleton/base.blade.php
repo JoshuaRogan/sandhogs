@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="author" content="Josh Rogan">
-	<meta name="description" content="@yield('description')" >
+	<meta name="description" content="@yield('description', 'The East Coast Sandhogs are a National Travel Baseball Organization based in Pennsylvania. We have teams from the ages of 8u through 18u. We provide players with the opportunity to develop within our system, improve their abilities and become responsible, educated student-athletes. We pride ourselves on teaching transferable life skills through the game of baseball and expose our players to coaches and scouts at the next level.')" >
 	
 	<title> East Coast Sandhogs | @yield('title')</title>
 
@@ -43,8 +43,8 @@
 		@endif
 		<!--Flash Messages -->
 
-
 		@yield('content')
+
 	</div>
 	<!--CONTENT-->
 
@@ -57,14 +57,6 @@
 		<script src="{{asset('/js/sandhogs.js')}}"></script>
     @show
 	<!--LAZY SCRIPTS --> 
-
-	
-    	
-    	
-	
-
 </body>
-
-
-
 </html>
+

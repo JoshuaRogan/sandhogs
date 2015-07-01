@@ -70,7 +70,7 @@ h1 {
 }
 @media (min-width: 992px) {
   h1 {
-    font-size: 34.199999999999996px;
+    font-size: 34.2px;
   }
 }
 @media (min-width: 1200px) {
@@ -100,7 +100,7 @@ h2 {
   }
 }
 h3 {
-  font-size: 19.200000000000003px;
+  font-size: 19.2px;
   /* Small devices (tablets, 768px and up) */
   /* Medium devices (desktops, 992px and up) */
   /* Large devices (large desktops, 1200px and up) */
@@ -112,7 +112,7 @@ h3 {
 }
 @media (min-width: 992px) {
   h3 {
-    font-size: 22.799999999999997px;
+    font-size: 22.8px;
   }
 }
 @media (min-width: 1200px) {
@@ -133,7 +133,7 @@ h4 {
 }
 @media (min-width: 992px) {
   h4 {
-    font-size: 17.099999999999998px;
+    font-size: 17.1px;
   }
 }
 @media (min-width: 1200px) {
@@ -142,7 +142,7 @@ h4 {
   }
 }
 h5 {
-  font-size: 11.200000000000001px;
+  font-size: 11.2px;
   /* Small devices (tablets, 768px and up) */
   /* Medium devices (desktops, 992px and up) */
   /* Large devices (large desktops, 1200px and up) */
@@ -154,7 +154,7 @@ h5 {
 }
 @media (min-width: 992px) {
   h5 {
-    font-size: 13.299999999999999px;
+    font-size: 13.3px;
   }
 }
 @media (min-width: 1200px) {
@@ -604,10 +604,6 @@ body footer#footer img.logo {
   border: 0;
   padding: 15px;
   margin-bottom: 20px;
-}
-/****Social Media Feed Modifications ****/
-.social-media.facebook-page div div {
-  height: 700px;
 }
 /*****Font aweomse mods****/
 .fa-calstack .calendar-text {

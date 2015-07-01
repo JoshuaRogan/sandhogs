@@ -14,15 +14,16 @@
 
 			<div class="col-md-6"> 
 				<h3> About Us </h3>
-				<p> Northeast Pride Baseball and the new East Coast Sandhogs Baseball Organization (formerly players and coaches of the Moosic Mets) are proud to announce their partnership agreement effective for the 2015 season and beyond. Along with this collaboration, both organizations are very excited to be the representative of Major League Baseball’s San Francisco Giants with the development of the San Francisco Giants East Coast Scout Team.</p>
+				<p>@include('blurbs.about')</p>
+
 
 				<section> 
 					<h4 class='hidden'>Contact</h4>
 					
 					<address class="col-md-12 col-xs-12 text-center"> 
-						Paul McGloin <br/>
-						<i class="fa fa-envelope"></i> <a href="mailto:mcgloin@electricitybaseball.com">mcgloin@electricitybaseball.com</a> <br/>
-						<i class="fa fa-mobile"></i> (570) 878-8483
+						East Coast Sandhogs <br/>
+						<i class="fa fa-envelope"></i> <a href="mailto:info@sandhogsbaseball.com">info@sandhogsbaseball.com</a> <br/>
+						<i class="fa fa-envelope"></i> <a href="mailto:webmaster@sandhogsbaseball.com">webmaster@sandhogsbaseball.com</a> <br/>
 					</address>
 
 				</section>
@@ -56,4 +57,4 @@
 		</div> 
 	</div> 
 </footer>
-@stop
+@endsection

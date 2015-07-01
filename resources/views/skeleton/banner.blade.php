@@ -4,7 +4,7 @@
 		<div class="row"> 
 			<div class="col-md-6"> 
 				<h1> East Coast Sandhogs </h1>
-				<p> Northeast Pride Baseball and the new East Coast Sandhogs Baseball Organization (formerly players and coaches of the Moosic Mets) are proud to announce their partnership agreement effective for the 2015 season and beyond. </p>
+				<p> As the premier national travel baseball organization based in Northeastern Pennsylvania, the East Coast Sandhogs symbolize all that is good in our community. Our organization will represent a baseball standard of excellence and aim to create an atmosphere of fun, learning and strong competition against quality opponents. Our group of players, coaches, staff and parents strive to build maximum exposure for our area’s best baseball players in an effort to help them reach their full potential in education, baseball and life. </p>
 				<p><a class="btn btn-primary btn-lg" href="http://goo.gl/forms/JKS1M2K0De" target="_blank" role="button">Sign Up for Tryouts!</a></p>
 				<div
 					class="fb-like col-xs-12 center-block"
@@ -16,11 +16,8 @@
 			</div>
 
 			<div class="col-md-6 clearfix"> 
-				<div id="banner-slider"> 
-					@include('slippry.simpleItem', ['imgURL' => asset('img/slider/team_picture.jpg'), 'caption' => 'East Coast Sandhogs'])
-					@include('slippry.simpleItem', ['imgURL' => asset('img/slider/team_picture_award.jpg'), 'caption' => 'East Coast Sandhogs'])
-					@include('slippry.simpleItem', ['imgURL' => asset('img/slider/team_picture_field.jpg'), 'caption' => 'East Coast Sandhogs'])
-					@include('slippry.simpleItem', ['imgURL' => asset('img/slider/tryouts.jpg'), 'caption' => 'East Coast Sandhogs Tryouts'])
+				<div id="banner-slider" class='slider-default'> 
+					@include('slippry.slider-default')
 				</div>
 			</div>
 
