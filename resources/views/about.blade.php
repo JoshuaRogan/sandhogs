@@ -25,7 +25,7 @@
 
 		<div class="col-md-5"> 
 			<div id="about-slider" class='slider-default'> 
-				@include('slippry.slider-default')
+				<ul>@include('slippry.slider-default')</ul>
 			</div>
 		</div>
 

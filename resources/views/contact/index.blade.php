@@ -66,7 +66,7 @@
 
 
 				{!! Form::close() !!}
-			</form>
+
 
 
 
@@ -76,21 +76,22 @@
  			<h3>  Contacts </h3>
 
  			<div class="contact-box">
-		 		<address> 
-					<h3><a href="{{route('mcgloin.info')}}">Paul McGloin</a></h3>
+		 		<div> 
+					<h3>East Coast Sandhogs</h3>
+					<p> Thank you for your interest in the East Coast Sandhogs baseball organization! Please fill out the form or send an email to the address below: </p>
 					<div>
-						<div><a href="mailto:mcgloin@electricitybaseball.com"><i class="fa fa-envelope"></i> Email Me</a></div>
-						<div><i class="fa fa-mobile"></i> (570) 878-8483</div>
+						<p><a href="mailto:info@sandhogsbaseball.com">info@sandhogsbaseball.com </a></p>
+						{{-- <div><i class="fa fa-mobile"></i> (570) 878-8483</div> --}}
 					</div>
-				</address>
+				</div>
 
-				<address class='hidden'> 
+				<div class='hidden'> 
 					<h3>Joe Curreri</h3>
 					<div>
 						<div><a href="mailto:nepridebaseball@gmail.com"><i class="fa fa-envelope"></i> Email Me</a></div>
 						<div><i class="fa fa-mobile"></i> {(570) 575-1515</div>
 					</div>
-				</address>
+				</div>
  			</div>
  		</div>
 

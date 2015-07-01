@@ -30,23 +30,17 @@
 				@include('events.homeEvent')
 			@endforeach
 		</ul>
-
+		
 		<div class="col-xs-12"> 
 			<a class="btn btn-info btn-lg btn-block" href="{{route('event.index')}}" role="button" id="allEvents">All Events</a>
 		</div>
 	</div>
 
 	<div id="capture" class="col-xs-12 col-md-7">
-	  	<h2>San Francisco Giants High School Scout Team Highlights Partnership</h2>
-		<blockquote>
-			<p>"We are excited to attach our name to the San Francisco Giants. Their reputation speaks for itself. Though our partnership with such a quality organization as the Northeast Pride, we feel that we can provide the best possible travel baseball experience and opportunity for all our players throughout the Northeast." </p>
-			<footer><cite title="Paul McGloin">Paul McGloin of the San Francisco Giants and East Coast Sandhogs</cite></footer>
-		</blockquote>		
 
-		<blockquote>
-			<p> "Northeast Pride Baseball is very excited for the opportunity to be working with such a storied MLB franchise in the San Francisco Giants. The ability to bring national attention and exposure to all the players in our region is a great honor. We look forward to working with Paul McGloin and the rest of the East Coast Sandhogs baseball family on creating a great brand of baseball here in our area."</p>
-			<footer><cite title="Joe Curreri">Joe Curreri of the Northeast Pride</cite></footer>
-		</blockquote>
+	  	<h2>About the East Coast Sandhogs</h2>
+	  	<p class='lead'>@include('blurbs.about')</p>
+
 		<p><a href="/files/press_release.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> Press Release</a></p>	
 	</div>
 

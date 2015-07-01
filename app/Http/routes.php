@@ -86,6 +86,9 @@ Route::get('splash', 'RootController@soon');
 
 Route::get('about', 'RootController@about');
 Route::get('store', 'RootController@soon');
+Route::get('off-season-trainers', 'RootController@soon');
+Route::get('advisory-board', 'RootController@soon');
+
 Route::get('coaches', ['as'=> 'mcgloin.info', 'uses'=>'RootController@coaches']);
 
 

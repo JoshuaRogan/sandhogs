@@ -17,7 +17,9 @@
 
 			<div class="col-md-6 clearfix"> 
 				<div id="banner-slider" class='slider-default'> 
-					@include('slippry.slider-default')
+					<ul> 
+						@include('slippry.slider-default')
+					</ul>
 				</div>
 			</div>
 

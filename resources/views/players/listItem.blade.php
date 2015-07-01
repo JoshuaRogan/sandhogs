@@ -28,11 +28,11 @@
 	  			<div class="panel panel-default">
 	  				<div class="panel-heading" role="tab" id="heading-stats-{{ $player->id }}">
 						<h4 class="panel-title">
-							<a data-toggle="collapse" href="#collapsed-stats-{{ $player->id }}" aria-expanded="true" aria-controls="collapsed-stats-{{ $player->{'#'} }}"><i class="fa fa-line-chart"></i> Stats </a>
+							<a data-toggle="collapse" href="#collapsed-stats-{{ $player->id }}" aria-expanded="true" aria-controls="collapsed-stats-{{ $player->{'id'} }}"><i class="fa fa-line-chart"></i> Stats </a>
 						</h4>
 	  				</div>
 
-	  				<div id="collapsed-stats-{{ $player->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-stats-{{ $player->{'#'} }}">
+	  				<div id="collapsed-stats-{{ $player->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-stats-{{ $player->{'id'} }}">
 	  					<div class="simple-padding-3">  
 	  						<h4> Batting Stats </h4>
 		  					<ul class="list-unstyled"> 	

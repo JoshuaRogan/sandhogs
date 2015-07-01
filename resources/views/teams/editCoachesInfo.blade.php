@@ -36,13 +36,13 @@
 
 					<div class="col-sm-4 form-group {{ $errors->has('$coach->id') ? 'has-error' : '' }}">
 						{!! Form::label($coach->id, "Role: ", ['class' => '']) !!}
-						{!! Form::text("role-$coach->id", $coach->pivot->role ? $coach->pivot->role : null, ['class' => 'form-control', 'placeholder' => 'e.g. Head Coach', 'required'=>'required']) !!}
+						{!! Form::text("role-$coach->id", $coach->pivot->role ? $coach->pivot->role : null, ['class' => 'form-control', 'placeholder' => 'e.g. Head Coach']) !!}
 						{!! $errors->first($coach->id, '<span class="help-block">:message</span>')!!}
 					</div>
 
 					<div class="col-sm-4 form-group {{ $errors->has('$coach->id') ? 'has-error' : '' }}">
 						{!! Form::label($coach->id, "Number: ", ['class' => '']) !!}
-						{!! Form::text("number-$coach->id", $coach->pivot->role ? $coach->pivot->number : null, ['class' => 'form-control', 'placeholder' => 'e.g. 22', 'required'=>'required']) !!}
+						{!! Form::text("number-$coach->id", $coach->pivot->role ? $coach->pivot->number : null, ['class' => 'form-control', 'placeholder' => 'e.g. 22']) !!}
 						{!! $errors->first($coach->id, '<span class="help-block">:message</span>')!!}
 					</div>
 

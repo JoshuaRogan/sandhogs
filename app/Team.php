@@ -15,10 +15,34 @@ class Team extends Model {
 	protected $fillable = ['name', 'description', 'year'];
 
 	/**
+	 * Return all of the visible teams sorted by a custom function 
+	 * 
+	 * @return Collection
+	 */
+	public static function sortedVisibleTeams(){
+		return Team::visible()->get()->sortBy(function($item){
+			$age_group = substr(preg_replace("/(^\d+)(.+$)/", "$1", $item->name), 0, 2);
+
+			if(is_numeric($age_group)){
+				if($age_group == 17){
+					if($item->name == "17UE") return 18;
+					else return 17; 
+				}
+				else{
+					return intval($age_group);
+				}
+			}
+			else{
+				return 19;
+			}
+		}); 
+	}
+
+	/**
 	 * Only get the teams that are currently visible. 
 	 * 
-	 * @param type $query 
-	 * @return type $query
+	 * @param Builder $query 
+	 * @return Builder
 	 */
 	public function scopeVisible($query)
     {
@@ -28,8 +52,8 @@ class Team extends Model {
     /**
 	 * Only get the teams that are currently visible. 
 	 * 
-	 * @param type $query 
-	 * @return type $query
+	 * @param Builder $query 
+	 * @return Builder $query
 	 */
 	public function scopeNotVisible($query)
     {
@@ -40,8 +64,7 @@ class Team extends Model {
 	/**
      * Make sure the slug is valid. 
      * 
-     * @param type $value 
-     * @return type
+     * @param String $value 
      */
     public function setSlugAttribute($value){
     	$base_slug = str_slug(strtolower(str_ireplace(" ", "-", $value)), '-'); 
@@ -66,18 +89,20 @@ class Team extends Model {
 	}
 
 
+
 	/**
-	 *	Players of this team. 
-	 *
+	 * Players of this team
+	 * @return Collection
 	 */
 	public function players()
 	{
 		return $this->belongsToMany('App\Player')->withPivot('number')->orderBy('last');
 	}
 
+
 	/**
 	 *	Coaches of this team. 
-	 *
+	 * 	@return Collection
 	 */
 	public function coaches()
 	{
@@ -86,12 +111,32 @@ class Team extends Model {
 
 	/**
 	 *	Events for this team. 
-	 *
+	 * 	@return Collection
 	 */
 	public function events()
 	{
 		return $this->belongsToMany('App\Event')->orderBy('start_date');;
 	}
+
+	/**
+	 * Return all of the head coaches for this team
+	 * @return Collection
+	 */
+	public function headCoaches()
+	{
+		return $this->belongsToMany('App\Coach')->withPivot('number', 'role')->wherePivot('role','Head Coach')->orderBy('last');
+	}
+
+	/**
+	 * Return all of the non head coaches for this team
+	 * @return Collection
+	 */
+	public function asstCoaches()
+	{
+		return $this->belongsToMany('App\Coach')->withPivot('number', 'role')->wherePivot('role','<>','Head Coach')->orderBy('last');
+	}
+
+
 
 
 

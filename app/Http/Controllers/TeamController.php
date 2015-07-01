@@ -34,7 +34,7 @@ class TeamController extends Controller {
 	 */
 	public function index(Team $team)
 	{
-		return view('teams.index', ['teams'=> Team::visible()->get()]);
+		return view('teams.index', ['teams'=> Team::sortedVisibleTeams()]);
 	}
 
 	/**

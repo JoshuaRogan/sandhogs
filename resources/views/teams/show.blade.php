@@ -18,7 +18,7 @@
 @section('content')
 
 <div class="container">
-	<h2> East Coast Sandhogs <span class="pull-right">{{$team->name}} {{$team->year}} </h2>
+	<h2> East Coast Sandhogs <span class="pull-right">{{$team->name}} {{$team->year}} </span></h2>
 	{{-- <p> Listed below are all of the teams for the East Coast Sandhogs. Click on a column to sort it. </p> --}}
 	<div class="col-md-8"> 
 		<h3>Roster</h3>

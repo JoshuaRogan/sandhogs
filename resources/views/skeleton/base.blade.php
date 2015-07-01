@@ -20,9 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
     @show
-
 	
-
+@include('skeleton.google-analytics')
 </head> 
 
 <body> 
